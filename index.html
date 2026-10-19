@@ -3,10 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MaxyTrip × KNC Studio — Sıradaki Seferler</title>
-  <meta name="description" content="maxytrip.com'u geliştiren ekipten MaxyTrip'e özel hizmet broşürü: teslim edilen özellikler, sıradaki işler ve süre tahminleri.">
-  <meta name="robots" content="noindex, nofollow">
+  <title>KNC Studio — İşinize özel web sitesi ve yönetim paneli</title>
+  <meta name="description" content="KNC Studio iki kişilik bir yazılım stüdyosu. İşletmenize özel web sitesi, rezervasyon ve sipariş sistemi, online ödeme ve kendi yöneteceğiniz paneli sıfırdan kuruyoruz.">
   <meta name="theme-color" content="#0B2C3B">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="KNC Studio — İşinize özel web sitesi ve yönetim paneli">
+  <meta property="og:description" content="Şablon değil, işinize göre yazılım. maxytrip.com ve Taply'yi biz geliştirdik. Projenizi planlayın, tahmini süreyi hemen görün.">
+  <meta property="og:image" content="https://kncn23.github.io/maxytrip-brosur/assets/img/maxytrip-desktop.jpg">
+  <meta property="og:locale" content="tr_TR">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230B2C3B'/%3E%3Crect x='6' y='8' width='9' height='16' rx='2' fill='%23F6B92B'/%3E%3Crect x='17' y='8' width='9' height='16' rx='2' fill='%23F6B92B'/%3E%3Crect x='6' y='15.5' width='20' height='1' fill='%230B2C3B'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,19 +26,19 @@
       <a class="brand" href="#top" aria-label="KNC Studio — sayfa başı">
         <span class="brand__mark" aria-hidden="true"><i></i><i></i></span>
         <span class="brand__name">KNC Studio</span>
-        <span class="brand__for">× MaxyTrip</span>
+        <span class="brand__for">yazılım stüdyosu</span>
       </a>
       <nav class="nav" aria-label="Bölümler">
         <button class="nav__toggle" aria-expanded="false" aria-controls="nav-list">Menü</button>
         <ul id="nav-list">
-          <li><a href="#teslim">Teslim edilenler</a></li>
-          <li><a href="#siradaki">Sıradaki seferler</a></li>
-          <li><a href="#yetkinlik">Yetkinlikler</a></li>
-          <li><a href="#surec">Süreç</a></li>
+          <li><a href="#isler">İşlerimiz</a></li>
+          <li><a href="#hizmetler">Neler yapıyoruz</a></li>
+          <li><a href="#planla">Projenizi planlayın</a></li>
+          <li><a href="#biz">Biz</a></li>
           <li><a href="#sss">SSS</a></li>
         </ul>
       </nav>
-      <a class="btn btn--signal btn--sm" href="#iletisim">Görüşme planla</a>
+      <a class="btn btn--signal btn--sm" href="#iletisim">Bize yazın</a>
     </div>
   </header>
 
@@ -61,194 +65,291 @@
 
       <div class="wrap hero__grid">
         <div class="hero__copy">
-          <p class="eyebrow eyebrow--signal reveal">MaxyTrip için hazırlandı · 2026–27 sezonu</p>
-          <h1 class="hero__title reveal">Siteyi birlikte kurduk.<br><span>Şimdi filoyu büyütelim.</span></h1>
-          <p class="hero__lead reveal">maxytrip.com'un altyapısını, ödeme sistemini ve operasyon araçlarını biz geliştirdik. Bu sayfada şimdiye kadar teslim ettiklerimizi ve MaxyTrip'i bir sonraki sezona taşıyacak işleri, süre tahminleriyle bulabilirsiniz.</p>
+          <p class="eyebrow eyebrow--signal reveal">İki kişilik yazılım stüdyosu · Ankara</p>
+          <h1 class="hero__title reveal">Şablon değil.<br><span>İşinize özel yazılım.</span></h1>
+          <p class="hero__lead reveal">Bize gelen her işletmeyi önce dinliyoruz. Sonra ona göre web sitesini, rezervasyon ya da sipariş sistemini, online ödemeyi ve kendi yöneteceğiniz paneli sıfırdan kuruyoruz. Tur acentesi <strong>MaxyTrip</strong>'in rezervasyon sitesi ve NFC dijital menü platformu <strong>Taply</strong> bizim işimiz.</p>
           <div class="hero__actions reveal">
-            <a class="btn btn--signal" href="#siradaki">Rotanızı çizin</a>
-            <a class="btn btn--ghost" href="#teslim">Teslim edilenleri görün</a>
+            <a class="btn btn--signal" href="#planla">Projenizi planlayın</a>
+            <a class="btn btn--ghost" href="#isler">İşlerimize bakın</a>
           </div>
         </div>
 
-        <figure class="board reveal" aria-label="Kalkış panosu: teslim edilen ve sıradaki işler">
+        <figure class="board reveal" aria-label="Yayındaki işlerimiz ve sıradaki proje">
           <div class="board__head">
-            <span class="board__title">Kalkış panosu</span>
+            <span class="board__title">Yayındaki işler</span>
             <span class="board__clock"><span class="board__live" aria-hidden="true"></span>İST <time id="clock">--:--</time></span>
           </div>
-          <div class="board__cols" aria-hidden="true"><span>Kod</span><span>Sefer</span><span>Durum</span></div>
+          <div class="board__cols" aria-hidden="true"><span>Kod</span><span>Proje</span><span>Durum</span></div>
           <ul class="board__rows" id="board">
-            <li data-code="MX01" data-name="ALTYAPI & SANAL POS" data-status="YAYINDA"></li>
-            <li data-code="MX02" data-name="ÇOK DİLLİ SİTE" data-status="YAYINDA"></li>
-            <li data-code="MX03" data-name="OTOMATİK E-POSTA" data-status="YAYINDA"></li>
-            <li data-code="MX04" data-name="DOLULUK PANOSU" data-status="YAYINDA"></li>
-            <li data-code="MX05" data-name="PRERENDER SEO" data-status="SIRADA"></li>
-            <li data-code="MX06" data-name="ACENTE & KÂR RAPORU" data-status="SIRADA"></li>
-            <li data-code="MX07" data-name="ÜYELİK & SADAKAT" data-status="SIRADA"></li>
-            <li data-code="MX08" data-name="DERİN ANALİTİK" data-status="SIRADA"></li>
+            <li data-code="MX01" data-name="MAXYTRIP SİTESİ" data-status="YAYINDA"></li>
+            <li data-code="MX02" data-name="MAXYTRIP SANAL POS" data-status="YAYINDA"></li>
+            <li data-code="MX03" data-name="MAXYTRIP ÇOK DİLLİ" data-status="YAYINDA"></li>
+            <li data-code="TP01" data-name="TAPLY SİTESİ" data-status="YAYINDA"></li>
+            <li data-code="TP02" data-name="TAPLY KAFE PANELİ" data-status="YAYINDA"></li>
+            <li data-code="TP03" data-name="TAPLY ADMİN PANELİ" data-status="YAYINDA"></li>
+            <li data-code="YENİ" data-name="SİZİN PROJENİZ" data-status="SIRADA"></li>
           </ul>
-          <figcaption class="board__foot"><span><b>21</b> özellik yayında</span><span><b>10</b> sefer kalkışa hazır</span></figcaption>
+          <figcaption class="board__foot"><span><b>2</b> canlı proje · <b>750+</b> otomatik test</span><span>Sıradaki: <b>sizin işiniz</b></span></figcaption>
         </figure>
       </div>
 
-      <div class="ticker" aria-label="maxytrip.com'dan kısa bilgiler">
+      <div class="ticker" aria-label="Kısaca neler yapıyoruz">
         <div class="wrap ticker__inner">
-          <span><b>553</b> otomatik test</span>
-          <span><b>TR · EN · DE</b> dil desteği</span>
-          <span><b>Sanal POS</b> + 4 ödeme seçeneği</span>
-          <span><b>€ · ₺ · $</b> fiyat gösterimi</span>
-          <span><b>Tur + araç kiralama</b> tek sitede</span>
+          <span><b>Tasarım + kod + yayın</b> tek ekipte</span>
+          <span><b>Yönetim paneli</b> her projede</span>
+          <span><b>Sanal POS</b> ile online ödeme</span>
+          <span><b>TR · EN · DE · RU · AR</b> çok dil</span>
+          <span><b>Sabit teklif</b>, kalem kalem</span>
         </div>
       </div>
     </section>
 
-    <!-- TESLİM EDİLENLER -->
-    <section class="section section--light" id="teslim">
+    <!-- İŞLERİMİZ -->
+    <section class="section section--light" id="isler">
       <div class="wrap">
         <header class="section__head">
-          <p class="eyebrow">Teslim edilenler</p>
-          <h2 class="section__title">Yayındaki MaxyTrip'te imzamız olan 21 özellik</h2>
-          <p class="section__lead">Rezervasyondan ödemeye, otel alışından yolcu manifestosuna kadar misafirin ve ekibinizin her gün kullandığı parçaları biz kurduk.</p>
+          <p class="eyebrow">İşlerimiz</p>
+          <h2 class="section__title">Yayında, her gün kullanılıyor</h2>
+          <p class="section__lead">İki farklı sektör, iki farklı ihtiyaç. İkisinde de müşterinin göreceği siteyi ve işletmenin arkada kullanacağı paneli birlikte kurduk.</p>
         </header>
 
-        <div class="showcase">
-          <figure class="frame frame--desktop">
-            <div class="frame__bar" aria-hidden="true"><i></i><i></i><i></i><span>maxytrip.com</span></div>
-            <div class="frame__screen">
-              <img src="assets/img/maxytrip-desktop.jpg" width="1800" height="1125" alt="maxytrip.com ana sayfası: hero alanı ve canlı kontenjanlı yaklaşan seferler panosu" loading="lazy">
-              <span class="pin" style="--x:52.5%;--y:22.8%"><b>1</b></span>
-              <span class="pin" style="--x:74%;--y:2.8%"><b>2</b></span>
-              <span class="pin" style="--x:8%;--y:54%"><b>3</b></span>
-              <span class="pin" style="--x:39%;--y:84%"><b>4</b></span>
+        <!-- MaxyTrip -->
+        <article class="case" id="maxytrip">
+          <header class="case__head">
+            <div>
+              <p class="case__tag">Turizm · Tur ve araç kiralama</p>
+              <h3 class="case__title">MaxyTrip</h3>
+              <p class="case__lead">Tur ve araç kiralama yapan bir acente. Misafir turu bulup yerini online ayırsın, ödemesini kartla ya da tur günü yapsın; ekip de kim nereden alınacak, kaç kişi gelecek, kimin ödemesi eksik, tek ekrandan görsün istendi.</p>
             </div>
-          </figure>
-          <figure class="frame frame--phone">
-            <div class="frame__screen">
-              <img src="assets/img/maxytrip-mobile.jpg" width="600" height="1300" alt="maxytrip.com'un mobil görünümü" loading="lazy">
-            </div>
-          </figure>
-          <ol class="legend">
-            <li><b>1</b><span><strong>Canlı kontenjan</strong> Yaklaşan seferler ve kalan yer sayısı doğrudan rezervasyon verisinden gelir.</span></li>
-            <li><b>2</b><span><strong>Döviz ve dil</strong> Fiyatlar €, ₺ ve $ olarak; arayüz Türkçe, İngilizce ve Almanca.</span></li>
-            <li><b>3</b><span><strong>Varışta ödeme</strong> Misafir yerini ayırır, ödemeyi tur günü yapabilir.</span></li>
-            <li><b>4</b><span><strong>Tur ve araç kiralama</strong> Bölge, kategori ve tarihle arayan tek arama kutusu.</span></li>
-          </ol>
-        </div>
-
-        <div class="ledger">
-          <article class="ledger__group">
-            <h3><span>Altyapı &amp; ödeme</span><em>3</em></h3>
-            <ul>
-              <li><strong>Temel altyapı</strong>Backend, veritabanı ve sitenin yayına alınması</li>
-              <li><strong>Sanal POS ile ödeme</strong>Kartla güvenli online tahsilat</li>
-              <li><strong>Ödeme seçenekleri</strong>Anında, kapora, varışta elden, havale/EFT</li>
-            </ul>
-          </article>
-          <article class="ledger__group">
-            <h3><span>Misafir tarafı</span><em>5</em></h3>
-            <ul>
-              <li><strong>Kişi sayısı + yetişkin/çocuk yaşı</strong>Her tura özel çocuk yaşı tanımı</li>
-              <li><strong>Tura yaş sınırı</strong>“En az X yaş” kuralı</li>
-              <li><strong>Otel alış noktası</strong>Misafir konakladığı oteli kendisi yazar</li>
-              <li><strong>Akıllı arama</strong>Yazım hatalarına rağmen doğru sonuçları getirir</li>
-              <li><strong>Tura video ekleme</strong>Tur görsellerinin yanında video desteği</li>
-            </ul>
-          </article>
-          <article class="ledger__group">
-            <h3><span>Otomasyon &amp; operasyon</span><em>5</em></h3>
-            <ul>
-              <li><strong>Otomatik e-posta bilgilendirme</strong>Rezervasyon detayı misafire anında gider</li>
-              <li><strong>Alış saati hatırlatma + oda no toplama</strong>Etkinlikten 1–2 gün önce misafire bağlantı</li>
-              <li><strong>Doluluk panosu</strong>Hangi tura kaç kişi geliyor: 5, 10 ve 15 günlük görünüm</li>
-              <li><strong>İptal &amp; iade takibi</strong>Gün bazlı filtre, tam ve yarım iade</li>
-              <li><strong>Yolcu manifestosu geliştirmeleri</strong>Ödeme durumu, dil, çocuk yaşı ve alış saati</li>
-            </ul>
-          </article>
-          <article class="ledger__group">
-            <h3><span>Çok dilli site</span><em>5</em></h3>
-            <ul>
-              <li><strong>Çeviri altyapısı</strong>Tüm metinler dile göre yönetilir</li>
-              <li><strong>Uzun metne dayanıklı arayüz</strong>Almanca gibi uzun dillerde taşma olmaz</li>
-              <li><strong>Özel karakterler + çoğul kuralları</strong>Her dilin kendi dilbilgisine göre</li>
-              <li><strong>AI destekli çeviri + redaksiyon</strong>Makine hızı, insan kontrolü</li>
-              <li><strong>Dile özel kontrol turu</strong>Her dil yayından önce baştan sona gezilir</li>
-            </ul>
-          </article>
-          <article class="ledger__group">
-            <h3><span>Satış &amp; görünürlük</span><em>3</em></h3>
-            <ul>
-              <li><strong>Sepet + öneri + artan indirim</strong>Birden fazla tur alana kademeli indirim</li>
-              <li><strong>Teknik SEO temeli</strong>Temiz adresler, tur ve fiyat şeması</li>
-              <li><strong>Reklam alanları</strong>Yan dikey bannerlar</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- SIRADAKİ SEFERLER / TEKLİF -->
-    <section class="section section--dark" id="siradaki">
-      <div class="wrap">
-        <header class="section__head section__head--split">
-          <div>
-            <p class="eyebrow eyebrow--signal">Sıradaki seferler</p>
-            <h2 class="section__title">Rotanızı kendiniz çizin</h2>
-          </div>
-          <p class="section__lead">Bir sonraki sezonda işinize yarayacak işleri seçin; tahmini süre sağda anında güncellenir; ücreti seçiminize göre görüşmede veririz. Bazı işlerin daha küçük, tek başına alınabilen sürümleri de var.</p>
-        </header>
-
-        <div class="planner">
-          <form class="routes" id="planner" aria-label="Sıradaki işler">
-            <!-- items rendered by app.js from the data below; static fallback for no-JS -->
-            <noscript>
-              <ul class="routes__fallback">
-                <li>İçeriğin arama motorunda görünmesi (prerender) — 5–9 gün</li>
-                <li>Tedarikçi / acente sistemi + maliyet-kâr + gelir/gider raporu — 10–16 gün</li>
-                <li>Kişisel hesap + üyelik/sadakat indirimi + favoriler — 7–11 gün</li>
-                <li>Derin analitik — 5–8 gün</li>
-                <li>Kampanya popup + çapraz satış önerileri — 3–6 gün</li>
-                <li>Araç/transfer teklifi maili + tur sonrası memnuniyet anketi — 4–7 gün</li>
-                <li>Yeni dil — dil başına 1,5–3 gün</li>
-              </ul>
-            </noscript>
-          </form>
-
-          <aside class="ticket" id="ozet" aria-live="polite">
-            <div class="ticket__top">
-              <p class="ticket__label">Seçtiğiniz rota</p>
-              <p class="ticket__count"><span id="sel-count">0</span> iş</p>
-            </div>
-            <dl class="ticket__sums">
-              <div><dt>Tahmini süre</dt><dd id="sum-days">—</dd></div>
-              <div><dt>Ücret</dt><dd class="ticket__quote">Görüşmede, kalem kalem sabit teklif</dd></div>
+            <dl class="case__facts">
+              <div><dt>Ne yaptık</dt><dd>Rezervasyon sitesi, ödeme, yönetim paneli</dd></div>
+              <div><dt>Diller</dt><dd>Türkçe · İngilizce · Almanca</dd></div>
+              <div><dt>Güvence</dt><dd>553 otomatik test</dd></div>
+              <div><dt>Adres</dt><dd><a href="https://www.maxytrip.com" target="_blank" rel="noopener">maxytrip.com ↗</a></dd></div>
             </dl>
-            <ul class="ticket__list" id="sel-list"><li class="ticket__empty">Soldan bir iş seçerek başlayın.</li></ul>
-            <p class="ticket__note" id="sel-note" hidden>Süresi görüşmede netleşecek işler toplama dahil değildir.</p>
-            <div class="ticket__perf" aria-hidden="true"></div>
-            <div class="ticket__actions">
-              <a class="btn btn--signal btn--block" id="send-mail" href="#iletisim">Bu seçimi e-postayla gönderin</a>
-              <button class="btn btn--line btn--block" id="copy-link" type="button">Bağlantıyı kopyalayın</button>
+          </header>
+
+          <div class="showcase">
+            <figure class="frame frame--desktop">
+              <div class="frame__bar" aria-hidden="true"><i></i><i></i><i></i><span>maxytrip.com</span></div>
+              <div class="frame__screen">
+                <img src="assets/img/maxytrip-desktop.jpg" width="1800" height="1125" alt="maxytrip.com ana sayfası: kapak alanı ve canlı kontenjanlı yaklaşan seferler" loading="lazy">
+                <span class="pin" style="--x:52.5%;--y:22.8%"><b>1</b></span>
+                <span class="pin" style="--x:74%;--y:2.8%"><b>2</b></span>
+                <span class="pin" style="--x:8%;--y:54%"><b>3</b></span>
+                <span class="pin" style="--x:39%;--y:84%"><b>4</b></span>
+              </div>
+            </figure>
+            <figure class="frame frame--phone">
+              <div class="frame__screen">
+                <img src="assets/img/maxytrip-mobile.jpg" width="600" height="1300" alt="maxytrip.com'un telefondaki görünümü" loading="lazy">
+              </div>
+            </figure>
+            <ol class="legend">
+              <li><b>1</b><span><strong>Canlı kontenjan</strong> Yaklaşan seferler ve kalan yer sayısı doğrudan rezervasyon verisinden gelir.</span></li>
+              <li><b>2</b><span><strong>Döviz ve dil</strong> Fiyatlar €, ₺ ve $ olarak; arayüz Türkçe, İngilizce ve Almanca.</span></li>
+              <li><b>3</b><span><strong>Esnek ödeme</strong> Kartla, kaporayla, havaleyle ya da tur günü elden.</span></li>
+              <li><b>4</b><span><strong>Tek arama kutusu</strong> Tur ve araçları bölge, kategori ve tarihe göre bulur; yazım hatalarını tolere eder.</span></li>
+            </ol>
+          </div>
+
+          <details class="more">
+            <summary>Teslim ettiğimiz 21 özelliğin tamamı</summary>
+            <div class="ledger">
+              <article class="ledger__group">
+                <h3><span>Altyapı &amp; ödeme</span><em>3</em></h3>
+                <ul>
+                  <li><strong>Temel altyapı</strong>Backend, veritabanı ve sitenin yayına alınması</li>
+                  <li><strong>Sanal POS ile ödeme</strong>Kartla güvenli online tahsilat</li>
+                  <li><strong>Ödeme seçenekleri</strong>Anında, kapora, varışta elden, havale/EFT</li>
+                </ul>
+              </article>
+              <article class="ledger__group">
+                <h3><span>Misafir tarafı</span><em>5</em></h3>
+                <ul>
+                  <li><strong>Kişi sayısı + yetişkin/çocuk yaşı</strong>Her tura özel çocuk yaşı tanımı</li>
+                  <li><strong>Tura yaş sınırı</strong>“En az X yaş” kuralı</li>
+                  <li><strong>Otel alış noktası</strong>Misafir konakladığı oteli kendisi yazar</li>
+                  <li><strong>Akıllı arama</strong>Yazım hatalarına rağmen doğru sonuçları getirir</li>
+                  <li><strong>Tura video ekleme</strong>Tur görsellerinin yanında video desteği</li>
+                </ul>
+              </article>
+              <article class="ledger__group">
+                <h3><span>Otomasyon &amp; operasyon</span><em>5</em></h3>
+                <ul>
+                  <li><strong>Otomatik e-posta bilgilendirme</strong>Rezervasyon detayı misafire anında gider</li>
+                  <li><strong>Alış saati hatırlatma + oda no toplama</strong>Etkinlikten 1–2 gün önce misafire bağlantı</li>
+                  <li><strong>Doluluk panosu</strong>Hangi tura kaç kişi geliyor: 5, 10 ve 15 günlük görünüm</li>
+                  <li><strong>İptal &amp; iade takibi</strong>Gün bazlı filtre, tam ve yarım iade</li>
+                  <li><strong>Yolcu manifestosu</strong>Ödeme durumu, dil, çocuk yaşı ve alış saati</li>
+                </ul>
+              </article>
+              <article class="ledger__group">
+                <h3><span>Çok dilli site</span><em>5</em></h3>
+                <ul>
+                  <li><strong>Çeviri altyapısı</strong>Tüm metinler dile göre yönetilir</li>
+                  <li><strong>Uzun metne dayanıklı arayüz</strong>Almanca gibi uzun dillerde taşma olmaz</li>
+                  <li><strong>Özel karakterler + çoğul kuralları</strong>Her dilin kendi dilbilgisine göre</li>
+                  <li><strong>AI destekli çeviri + redaksiyon</strong>Makine hızı, insan kontrolü</li>
+                  <li><strong>Dile özel kontrol turu</strong>Her dil yayından önce baştan sona gezilir</li>
+                </ul>
+              </article>
+              <article class="ledger__group">
+                <h3><span>Satış &amp; görünürlük</span><em>3</em></h3>
+                <ul>
+                  <li><strong>Sepet + öneri + artan indirim</strong>Birden fazla tur alana kademeli indirim</li>
+                  <li><strong>Teknik SEO temeli</strong>Temiz adresler, tur ve fiyat şeması</li>
+                  <li><strong>Reklam alanları</strong>Yan dikey bannerlar</li>
+                </ul>
+              </article>
             </div>
-            <p class="ticket__fine">Süreler iş günü olarak, işler arka arkaya yapılırsa toplanmıştır. Süreler tahminidir; kesin takvim ve ücret kapsam netleşince verilir.</p>
-          </aside>
-        </div>
+          </details>
+        </article>
+
+        <!-- Taply -->
+        <article class="case" id="taply">
+          <header class="case__head">
+            <div>
+              <p class="case__tag">Yeme-içme · NFC/QR dijital menü platformu</p>
+              <h3 class="case__title">Taply</h3>
+              <p class="case__lead">Taply, kafelerin masalarına NFC'li stand ve QR ile açılan dijital menü sunuyor. Eski Wix sitesinin yerine; tanıtım sitesini, her kafenin kendi menüsünü yönettiği paneli ve Taply ekibinin bütün kafeleri, talepleri ve tahsilatı izlediği yönetim panelini tek uygulamada kurduk.</p>
+            </div>
+            <dl class="case__facts">
+              <div><dt>Ne yaptık</dt><dd>Tanıtım sitesi, kafe paneli, yönetim paneli</dd></div>
+              <div><dt>Menü dilleri</dt><dd>TR · EN · DE · RU · AR · FR</dd></div>
+              <div><dt>Güvence</dt><dd>200+ otomatik test, otomatik yedek</dd></div>
+              <div><dt>Yapı</dt><dd>Çok müşterili (SaaS) platform</dd></div>
+            </dl>
+          </header>
+
+          <div class="showcase">
+            <figure class="frame frame--desktop">
+              <div class="frame__bar">
+                <i aria-hidden="true"></i><i aria-hidden="true"></i><i aria-hidden="true"></i>
+                <div class="frame__tabs" role="tablist" aria-label="Taply ekranları">
+                  <button type="button" role="tab" aria-selected="true" aria-controls="tp-panel" id="tp-tab-panel">Kafe paneli</button>
+                  <button type="button" role="tab" aria-selected="false" aria-controls="tp-admin" id="tp-tab-admin" tabindex="-1">Yönetim paneli</button>
+                  <button type="button" role="tab" aria-selected="false" aria-controls="tp-site" id="tp-tab-site" tabindex="-1">Tanıtım sitesi</button>
+                </div>
+              </div>
+              <div class="frame__screen">
+                <img id="tp-panel" role="tabpanel" aria-labelledby="tp-tab-panel" src="assets/img/taply-panel.jpg" width="1800" height="1125" alt="Taply kafe paneli: günlük okutma sayıları, eksik alerjen uyarısı ve son 14 günün NFC/QR okutma grafiği" loading="lazy">
+                <img id="tp-admin" role="tabpanel" aria-labelledby="tp-tab-admin" src="assets/img/taply-admin.jpg" width="1800" height="1125" alt="Taply yönetim paneli: kafeler listesi, durum, sağlık puanı, menü ve üyelik bilgileri" loading="lazy" hidden>
+                <img id="tp-site" role="tabpanel" aria-labelledby="tp-tab-site" src="assets/img/taply-site.jpg" width="1800" height="1125" alt="Taply tanıtım sitesi: NFC kartlarıyla işletmeyi dijitale taşıma başlığı" loading="lazy" hidden>
+              </div>
+            </figure>
+            <figure class="frame frame--phone">
+              <div class="frame__screen">
+                <img src="assets/img/taply-menu.jpg" width="780" height="1688" alt="Taply ile açılan bir kafe menüsünün telefondaki görünümü: kategoriler, arama, fiyatlar ve alerjen etiketi" loading="lazy">
+              </div>
+            </figure>
+            <ul class="legend legend--plain">
+              <li><span><strong>Menüyü kafe yönetir</strong> Fiyat, ürün, boy, alerjen ve “tükendi” bilgisi panelden değişir, masadaki standa anında yansır.</span></li>
+              <li><span><strong>Mevzuata uyumlu</strong> 14 alerjen zorunluluğunu ve servis/kuver yasağını panel kendisi hatırlatır.</span></li>
+              <li><span><strong>Uygulama yok</strong> Müşteri telefonu standa dokundurur ya da QR'ı okutur; menü kendi dilinde açılır.</span></li>
+            </ul>
+          </div>
+
+          <details class="more">
+            <summary>Taply'de neler var</summary>
+            <div class="ledger">
+              <article class="ledger__group">
+                <h3><span>Tanıtım sitesi</span><em>4</em></h3>
+                <ul>
+                  <li><strong>Panelden yönetilen içerik</strong>Metinler, ürünler, fiyatlar ve SSS kod bilmeden değişir</li>
+                  <li><strong>Sipariş ve teklif formları</strong>Talepler panele düşer, ekibe e-posta gider</li>
+                  <li><strong>Google sıralaması korundu</strong>Eski Wix adresleri yeni sayfalara yönlendirildi</li>
+                  <li><strong>Çerezsiz, hızlı</strong>İzleme çerezi yok, çerez bandı da gerekmiyor</li>
+                </ul>
+              </article>
+              <article class="ledger__group">
+                <h3><span>Kafe paneli</span><em>6</em></h3>
+                <ul>
+                  <li><strong>Ürün, boy ve seçenekler</strong>Küçük/orta/büyük, süt tipi, ekstra shot</li>
+                  <li><strong>Toplu fiyat güncelleme</strong>Yüzde ya da tutarla zam; önizleme ve fiyat geçmişi</li>
+                  <li><strong>Excel ile menü</strong>Tüm menüyü dışa aktar, düzenle, geri yükle</li>
+                  <li><strong>6 dilde menü</strong>Arapça sağdan sola; eksik çeviriler otomatik doldurulur</li>
+                  <li><strong>Saatli kategori + kampanya bandı</strong>Kahvaltı yalnızca sabah görünür</li>
+                  <li><strong>Döviz ve çoklu şube</strong>Günlük TCMB kuru; her şubeye ayrı menü</li>
+                </ul>
+              </article>
+              <article class="ledger__group">
+                <h3><span>Yönetim paneli</span><em>5</em></h3>
+                <ul>
+                  <li><strong>Talepten müşteriye</strong>Site talebi tek tıkla kafe hesabına dönüşür</li>
+                  <li><strong>Müşteri kartı ve takip</strong>Kişiler, görüşme notları, “tekrar ara” hatırlatmaları</li>
+                  <li><strong>Kafe sağlığı puanı</strong>Okutması düşen, panele girmeyen kafeler en üstte</li>
+                  <li><strong>Üyelik ve tahsilat</strong>Taksit takibi, sanal POS ile kartla yenileme, otomatik hatırlatma e-postaları</li>
+                  <li><strong>NFC/QR stok ve atama</strong>Toplu kod üretimi, standı masaya taşıma</li>
+                </ul>
+              </article>
+              <article class="ledger__group">
+                <h3><span>Altyapı &amp; güvenlik</span><em>4</em></h3>
+                <ul>
+                  <li><strong>Kafeler arası tam izolasyon</strong>Veritabanı seviyesinde, testlerle doğrulanmış</li>
+                  <li><strong>İki aşamalı doğrulama</strong>Authenticator uygulaması ve kurtarma kodları</li>
+                  <li><strong>Otomatik yedek</strong>Bozulmada son yedekten kendiliğinden geri yükleme</li>
+                  <li><strong>İşlem geçmişi</strong>Kim, ne zaman, neyi değiştirdi</li>
+                </ul>
+              </article>
+            </div>
+          </details>
+        </article>
       </div>
     </section>
 
-    <!-- YETKİNLİKLER -->
-    <section class="section section--light" id="yetkinlik">
+    <!-- HİZMETLER -->
+    <section class="section section--light section--flush" id="hizmetler">
       <div class="wrap">
         <header class="section__head">
-          <p class="eyebrow">Listenin ötesinde</p>
-          <h2 class="section__title">Elimizdeki diğer araçlar</h2>
-          <p class="section__lead">MaxyTrip'in verisi artık bizde düzenli duruyor. Gömülü sistemlerden optimizasyona uzanan mühendislik geçmişimizle, bu veriyi sahada işe yarayan araçlara çevirebiliriz.</p>
+          <p class="eyebrow">Neler yapıyoruz</p>
+          <h2 class="section__title">Küçük bir siteden kendi platformunuza</h2>
+          <p class="section__lead">İşe tek bir sayfayla başlayıp zamanla büyütebilirsiniz. Her parçayı işinizin kurallarına göre yazıyoruz; hazır tema giydirmiyoruz.</p>
         </header>
 
         <div class="skills">
+          <article class="skill">
+            <p class="skill__tag">Tanıtım · Kurumsal</p>
+            <h3>Tanıtım sitesi</h3>
+            <p>Hızlı açılan, telefonda düzgün görünen, Google'ın okuyabildiği bir site. Metinleri ve görselleri panelden kendiniz değiştirirsiniz; teklif ve iletişim formları size e-postayla gelir.</p>
+            <p class="skill__ref">Örnek: Taply tanıtım sitesi</p>
+          </article>
+          <article class="skill">
+            <p class="skill__tag">Rezervasyon · Sipariş · Randevu</p>
+            <h3>Online satış</h3>
+            <p>Kontenjan, tarih, kişi sayısı, kupon ve indirim kuralları işinize göre. Sanal POS ile kartla ödeme, kapora ya da yerinde ödeme; onay e-postası müşteriye kendiliğinden gider.</p>
+            <p class="skill__ref">Örnek: MaxyTrip rezervasyon ve ödeme</p>
+          </article>
+          <article class="skill">
+            <p class="skill__tag">Panel · CRM · Rapor</p>
+            <h3>Yönetim paneli</h3>
+            <p>Talepler, müşteriler, rezervasyonlar ve tahsilat tek ekranda. Kimin neyi görebileceğini siz belirlersiniz; her değişiklik işlem geçmişine yazılır. Excel'e aktarım dahil.</p>
+            <p class="skill__ref">Örnek: MaxyTrip doluluk panosu, Taply tahsilat sayfası</p>
+          </article>
+          <article class="skill">
+            <p class="skill__tag">SaaS · Çok müşterili</p>
+            <h3>Kendi platformunuz</h3>
+            <p>Hizmetinizi başka işletmelere abonelikle satmak istiyorsanız: her müşteriye ayrı panel, birbirinden tamamen ayrık veriler, paketler, üyelik yenileme ve hatırlatmalar.</p>
+            <p class="skill__ref">Örnek: Taply</p>
+          </article>
+          <article class="skill">
+            <p class="skill__tag">Otomasyon · Entegrasyon</p>
+            <h3>İşi kendiliğinden yapan parçalar</h3>
+            <p>Hatırlatma e-postaları, günlük döviz kuru, çok dilli otomatik çeviri, Google yorumları, QR ve NFC üretimi. Elle yapılan tekrar eden işleri koda devrederiz.</p>
+            <p class="skill__ref">Örnek: MaxyTrip alış saati hatırlatması</p>
+          </article>
+          <article class="skill">
+            <p class="skill__tag">Yenileme · Taşıma</p>
+            <h3>Mevcut sitenizi yenileme</h3>
+            <p>Wix ya da hazır bir sistemde sıkıştıysanız içeriğinizi kendi uygulamanıza taşırız. Eski adresler yeni sayfalara yönlenir; Google'daki sıralamanız kaybolmaz.</p>
+            <p class="skill__ref">Örnek: Taply'nin Wix'ten taşınması</p>
+          </article>
+
           <article class="skill skill--feature">
             <div class="skill__text">
-              <p class="skill__tag">Optimizasyon · OR-Tools / CP-SAT</p>
-              <h3>Otel alış rotası planlama</h3>
-              <p>Manifestoda her misafirin oteli ve alış saati zaten var. Araç rotalama çözücüsüyle servislerin hangi otelden hangi sırayla misafir alacağını, kapasite ve saat kısıtlarına uyarak otomatik planlarız. Şoföre sıralı liste, misafire net alış saati.</p>
+              <p class="skill__tag">Veri · Optimizasyon</p>
+              <h3>Siteden fazlası gerekiyorsa</h3>
+              <p>Mühendislik geçmişimiz web'le sınırlı değil. Servis aracının hangi adresten hangi sırayla geçeceğini kapasite ve saat kısıtlarına göre planlayan rota çözücüler, geçmiş veriden kampanya zamanı öneren modeller, sahada zayıf internette çalışan mobil ekranlar da yapıyoruz.</p>
             </div>
             <div class="route-map" aria-hidden="true">
               <svg viewBox="0 0 360 240">
@@ -260,55 +361,94 @@
                 <path class="route-map__pier" d="M326 34 h18 v12 h-18z"/>
                 <g class="route-map__labels">
                   <text x="102" y="146">07:40</text><text x="160" y="190">07:52</text><text x="206" y="104">08:05</text><text x="272" y="146">08:14</text><text x="248" y="54">08:26</text>
-                  <text x="344" y="24" text-anchor="end">Kaş limanı</text>
+                  <text x="344" y="24" text-anchor="end">Varış</text>
                 </g>
               </svg>
             </div>
           </article>
-          <article class="skill">
-            <p class="skill__tag">Backend · Spring Boot, FastAPI, PostgreSQL</p>
-            <h3>Sağlam rezervasyon çekirdeği</h3>
-            <p>Kontenjan, ödeme ve iade hesapları test güvencesinde. maxytrip.com bugün 553 otomatik testle korunuyor; her yeni iş bu sayıyı büyütür.</p>
-          </article>
-          <article class="skill">
-            <p class="skill__tag">Veri · Python, scikit-learn</p>
-            <h3>Doluluğa göre fiyat önerisi</h3>
-            <p>Geçmiş doluluk ve rezervasyon zamanlamasından, hangi tarihte kampanya yapılması gerektiğini öneren basit ve açıklanabilir modeller.</p>
-          </article>
-          <article class="skill">
-            <p class="skill__tag">Saha · Mobil web</p>
-            <h3>Rehber ve kaptan ekranı</h3>
-            <p>Manifestoyu telefonda açan, misafiri isimle işaretleyen, zayıf internette de çalışan sade bir yoklama ekranı.</p>
-          </article>
-          <article class="skill">
-            <p class="skill__tag">Yapay zekâ · Makine öğrenmesi</p>
-            <h3>Akıllı aramanın bir sonraki adımı</h3>
-            <p>“Çocukla yapılabilecek yarım günlük deniz turu” gibi doğal cümlelerden doğru turları bulan arama.</p>
-          </article>
         </div>
 
         <ul class="stack" aria-label="Kullandığımız teknolojiler">
-          <li>TypeScript</li><li>JavaScript</li><li>Python</li><li>Java</li><li>C / C++</li><li>SQL</li><li>PostgreSQL</li><li>Spring Boot</li><li>FastAPI</li><li>Flask</li><li>OR-Tools / CP-SAT</li><li>ONNX</li><li>scikit-learn</li><li>OpenCV</li><li>Linux</li><li>Git</li>
+          <li>TypeScript</li><li>JavaScript</li><li>Node.js</li><li>Python</li><li>Java</li><li>C / C++</li><li>SQL</li><li>PostgreSQL</li><li>Supabase</li><li>Spring Boot</li><li>Fastify</li><li>FastAPI</li><li>iyzico</li><li>OR-Tools / CP-SAT</li><li>scikit-learn</li><li>OpenCV</li><li>Playwright</li><li>Linux</li><li>Git</li>
         </ul>
       </div>
     </section>
 
-    <!-- NEDEN AYNI EKİP -->
-    <section class="section section--sea" id="neden">
+    <!-- PLANLAYICI -->
+    <section class="section section--dark" id="planla">
+      <div class="wrap">
+        <header class="section__head section__head--split">
+          <div>
+            <p class="eyebrow eyebrow--signal">Projenizi planlayın</p>
+            <h2 class="section__title">İhtiyacınızı seçin, süreyi hemen görün</h2>
+          </div>
+          <p class="section__lead">Aklınızdaki işe yakın parçaları işaretleyin; tahmini süre sağda anında güncellenir. Seçiminizi tek tıkla bize gönderin, kapsamı birlikte netleştirip sabit teklif verelim. Emin değilseniz hiçbirini seçmeden de yazabilirsiniz.</p>
+        </header>
+
+        <div class="planner">
+          <form class="routes" id="planner" aria-label="Proje parçaları">
+            <!-- items rendered by app.js from the data below; static fallback for no-JS -->
+            <noscript>
+              <ul class="routes__fallback">
+                <li>Tanıtım sitesi — 5–10 gün</li>
+                <li>Rezervasyon / randevu sistemi — 10–18 gün</li>
+                <li>Ürün kataloğu + sipariş / teklif formu — 6–12 gün</li>
+                <li>Yönetim paneli — 5–10 gün</li>
+                <li>Sanal POS ile online ödeme — 3–6 gün</li>
+                <li>Ek dil — dil başına 1,5–3 gün</li>
+              </ul>
+            </noscript>
+          </form>
+
+          <aside class="ticket" id="ozet" aria-live="polite">
+            <div class="ticket__top">
+              <p class="ticket__label">Projeniz</p>
+              <p class="ticket__count"><span id="sel-count">0</span> kalem</p>
+            </div>
+            <dl class="ticket__sums">
+              <div><dt>Tahmini süre</dt><dd id="sum-days">—</dd></div>
+              <div><dt>Ücret</dt><dd class="ticket__quote">Görüşmede, kalem kalem sabit teklif</dd></div>
+            </dl>
+            <ul class="ticket__list" id="sel-list"><li class="ticket__empty">Soldan bir parça seçerek başlayın.</li></ul>
+            <p class="ticket__note" id="sel-note" hidden>Süresi görüşmede netleşecek kalemler toplama dahil değildir.</p>
+            <label class="ticket__brief">
+              <span>İşinizi birkaç cümleyle anlatın <small>(isteğe bağlı)</small></span>
+              <textarea id="brief" rows="3" maxlength="600" placeholder="Örn. Butik otelimiz için oda rezervasyonu ve kendi yöneteceğimiz bir panel istiyoruz."></textarea>
+            </label>
+            <div class="ticket__perf" aria-hidden="true"></div>
+            <div class="ticket__actions">
+              <a class="btn btn--signal btn--block" id="send-mail" href="#iletisim">Bu planı e-postayla gönderin</a>
+              <button class="btn btn--line btn--block" id="copy-link" type="button">Bağlantıyı kopyalayın</button>
+            </div>
+            <p class="ticket__fine">Süreler iş günü olarak, parçalar arka arkaya yapılırsa toplanmıştır ve tahminidir. Kesin takvim ve ücret, kapsam netleşince verilir.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- BİZ -->
+    <section class="section section--sea" id="biz">
       <div class="wrap why">
-        <h2 class="why__title">Neden yine<br>aynı ekip?</h2>
+        <div>
+          <h2 class="why__title">İki kişiyiz.<br>Aracı yok.</h2>
+          <p class="why__lead">KNC Studio, yazılım ve mühendislik geçmişi olan iki kişiden oluşuyor. Bir ajansın satış, proje yöneticisi ve taşeron zinciri yerine işinizi baştan sona aynı iki kişi yapıyor.</p>
+        </div>
         <div class="why__items">
           <article>
-            <h3>Kodu ilk günden biz yazdık</h3>
-            <p>Yeni bir ekibin sistemi öğrenmesine harcanacak haftalar yok. İlk gün doğrudan işe başlarız.</p>
+            <h3>Konuştuğunuz kişi, kodu yazan kişi</h3>
+            <p>İsteğiniz kimseye “aktarılmaz”. Görüşmede anlattığınızı doğrudan koda dökeriz; soru olduğunda da doğrudan size sorarız.</p>
           </article>
           <article>
-            <h3>Mevcut ekranların üstüne kurarız</h3>
-            <p>Doluluk ekranı, manifesto ve iade hesabı hazır. Yeni işler bunları genişletir, sıfırdan başlamaz; işler de bu yüzden kısa sürer.</p>
+            <h3>Önce işinizi öğreniyoruz</h3>
+            <p>Tur acentesinde çocuk yaşı ve otel alış saati, kafede alerjen ve kuver yasağı önemliydi. Sektörünüzün kurallarını öğrenip yazılıma koyuyoruz.</p>
           </article>
           <article>
-            <h3>Sezon takvimini biliyoruz</h3>
-            <p>İşleri yoğun sezondan önce yayına alacak şekilde planlarız. Sezon ortasında büyük değişiklik yapmayız.</p>
+            <h3>Testle teslim ediyoruz</h3>
+            <p>MaxyTrip 553, Taply 200'ü aşkın otomatik testle korunuyor. Her yeni özellik bu testlerden geçmeden yayına çıkmaz.</p>
+          </article>
+          <article>
+            <h3>Yayından sonra da buradayız</h3>
+            <p>Siteyi teslim edip kaybolmuyoruz. Hataları hızla ele alır, işiniz büyüdükçe yeni parçaları mevcut sistemin üstüne ekleriz.</p>
           </article>
         </div>
       </div>
@@ -318,15 +458,15 @@
     <section class="section section--light" id="surec">
       <div class="wrap">
         <header class="section__head">
-          <p class="eyebrow">Süreç</p>
-          <h2 class="section__title">Seçimden yayına beş adım</h2>
+          <p class="eyebrow">Nasıl çalışıyoruz</p>
+          <h2 class="section__title">İlk mesajdan yayına beş adım</h2>
         </header>
         <ol class="steps">
-          <li><span class="steps__no">01</span><h3>Seçim</h3><p>Bu sayfada işleri seçip bize gönderirsiniz.</p></li>
-          <li><span class="steps__no">02</span><h3>Kapsam ve sabit teklif</h3><p>Kısa bir görüşmeyle kapsamı netleştirir, kalem kalem sabit teklif veririz.</p></li>
-          <li><span class="steps__no">03</span><h3>Geliştirme</h3><p>Değişiklikleri önce test ortamında görürsünüz; canlı site etkilenmez.</p></li>
-          <li><span class="steps__no">04</span><h3>Test ve yayın</h3><p>Yeni testler eklenir, mevcutlarla birlikte geçince yayına alınır.</p></li>
-          <li><span class="steps__no">05</span><h3>Yayın sonrası takip</h3><p>İlk haftalarda hata ve küçük düzenlemeleri hızla ele alırız.</p></li>
+          <li><span class="steps__no">01</span><h3>Tanışma</h3><p>İşinizi, müşterinizi ve şu an elle yaptığınız işleri dinleriz.</p></li>
+          <li><span class="steps__no">02</span><h3>Kapsam ve sabit teklif</h3><p>Ne yapılacağını yazılı olarak netleştirir, kalem kalem sabit ücret ve takvim veririz.</p></li>
+          <li><span class="steps__no">03</span><h3>Geliştirme</h3><p>İlerlemeyi test adresinde canlı izlersiniz; erken görür, erken yön verirsiniz.</p></li>
+          <li><span class="steps__no">04</span><h3>Test ve yayın</h3><p>Otomatik testler geçince ve siz onaylayınca yayına alırız.</p></li>
+          <li><span class="steps__no">05</span><h3>Destek ve büyüme</h3><p>İlk haftalarda küçük düzenlemeleri hızla yaparız; sonraki parçaları birlikte planlarız.</p></li>
         </ol>
       </div>
     </section>
@@ -337,24 +477,28 @@
         <h2 class="section__title">Sık sorulanlar</h2>
         <div class="faq__list">
           <details>
-            <summary>Ücreti nasıl öğreneceğiz?</summary>
-            <p>Seçtiğiniz işleri bize gönderin. Kapsamı kısa bir görüşmede netleştirdikten sonra kalem kalem sabit teklif veririz. Sayfadaki süreler de bu görüşmede kesinleşir.</p>
+            <summary>Ücreti nasıl öğrenirim?</summary>
+            <p>Yukarıdaki planlayıcıdan seçiminizi ya da birkaç cümlelik bir açıklamayı bize gönderin. Kısa bir görüşmeyle kapsamı netleştirdikten sonra kalem kalem sabit teklif veririz.</p>
           </details>
           <details>
-            <summary>Tek bir işle başlayabilir miyiz?</summary>
-            <p>Evet. Her kalem bağımsızdır. Üyelik, analitik ve kampanya gibi işlerin daha küçük sürümleri de tek başına alınabilir.</p>
+            <summary>Hazır şablon mu kullanıyorsunuz?</summary>
+            <p>Hayır. Tasarımı ve kodu her proje için baştan yazıyoruz. Bu yüzden siteniz başkasınınkine benzemez ve işinizin kendine özgü kurallarını taşıyabilir.</p>
           </details>
           <details>
-            <summary>Çalışmalar sırasında site etkilenir mi?</summary>
-            <p>Hayır. Geliştirme test ortamında yapılır, siz onayladıktan sonra yayına alınır.</p>
+            <summary>Siteyi sonra kendim güncelleyebilir miyim?</summary>
+            <p>Evet. Metinler, görseller, ürünler, fiyatlar ve talepler için size bir yönetim paneli kuruyoruz; kod bilmeniz gerekmez.</p>
           </details>
           <details>
-            <summary>Sizden başka neler gerekiyor?</summary>
-            <p>Dış servislerle çalışan işler için o servislerin erişim bilgileri gerekir; örneğin WhatsApp bildirimleri için WhatsApp Business hesabı. Gerekenleri teklifte ayrıca listeleriz.</p>
+            <summary>Küçük bir işle başlayabilir miyim?</summary>
+            <p>Evet. Tek sayfalık bir tanıtım sitesiyle başlayıp rezervasyon, ödeme ya da panel gibi parçaları sonradan ekleyebilirsiniz. Her parça mevcut sistemin üstüne kurulur.</p>
           </details>
           <details>
-            <summary>Listede olmayan bir fikrimiz var.</summary>
-            <p>Bize yazın. “Elimizdeki diğer araçlar” bölümündekiler gibi listede olmayan işler için ayrı teklif hazırlarız.</p>
+            <summary>Mevcut sitemi yenileyebilir misiniz?</summary>
+            <p>Evet. Taply'nin Wix sitesini kendi uygulamasına taşıdık; eski adresler yeni sayfalara yönlendirildiği için Google'daki sıralama korundu. Aynısını sizin siteniz için de yapabiliriz.</p>
+          </details>
+          <details>
+            <summary>Alan adı, sunucu ve ödeme hesabı ne olacak?</summary>
+            <p>Alan adını ve sunucuyu sizin adınıza kurmanıza yardım ederiz. Online ödeme için sanal POS hesabının işletmeniz adına açılması gerekir; hangi bilgilerin gerektiğini teklifte ayrıca listeleriz.</p>
           </details>
         </div>
       </div>
@@ -363,12 +507,12 @@
     <!-- İLETİŞİM -->
     <section class="cta" id="iletisim">
       <div class="wrap cta__inner">
-        <p class="eyebrow eyebrow--signal">Bir sonraki sefer</p>
-        <h2 class="cta__title">Yerinizi ayıralım.</h2>
-        <p class="cta__lead">Seçtiğiniz işleri gönderin, kapsamı ve takvimi birlikte netleştirelim.</p>
+        <p class="eyebrow eyebrow--signal">Sıradaki proje</p>
+        <h2 class="cta__title">Sizinki olsun.</h2>
+        <p class="cta__lead">Aklınızdaki işi anlatın; ne yapılabileceğini, ne kadar süreceğini birlikte konuşalım.</p>
         <div class="cta__actions">
-          <a class="btn btn--signal" id="cta-mail" href="mailto:kaancanolcay@gmail.com?subject=MaxyTrip%20%E2%80%94%20s%C4%B1radaki%20seferler">E-posta gönderin</a>
-          <a class="btn btn--ghost" href="#siradaki">Rotanızı çizin</a>
+          <a class="btn btn--signal" id="cta-mail" href="mailto:kaancanolcay@gmail.com?subject=KNC%20Studio%20%E2%80%94%20proje%20talebi">E-posta gönderin</a>
+          <a class="btn btn--ghost" href="#planla">Projenizi planlayın</a>
         </div>
         <p class="cta__mail">kaancanolcay@gmail.com</p>
       </div>
@@ -377,13 +521,13 @@
 
   <footer class="footer">
     <div class="wrap footer__inner">
-      <span>KNC Studio · maxytrip.com'un geliştiricisi · Ankara</span>
-      <span>Bu sayfa yalnızca MaxyTrip ekibi için hazırlanmıştır.</span>
+      <span>KNC Studio · İki kişilik yazılım stüdyosu · Ankara</span>
+      <span>maxytrip.com ve Taply'nin geliştiricisi</span>
     </div>
   </footer>
 
   <div class="minibar" id="minibar" aria-hidden="true">
-    <span id="mini-text">0 iş seçildi</span>
+    <span id="mini-text">0 kalem seçildi</span>
     <a class="btn btn--signal btn--sm" href="#ozet" tabindex="-1">Özeti gör</a>
   </div>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>

@@ -71,65 +71,91 @@
   }
 
   /* ---------- Planner ---------- */
+  // Süreler iş günü cinsinden tahmini aralıklardır; null = görüşmede netleşir.
   const GROUPS = [
-    { label: "Görünürlük ve satış", ids: ["seo", "popup", "account"] },
-    { label: "Operasyon ve rapor", ids: ["supplier", "analytics", "transfer"] },
-    { label: "Yeni pazarlar", ids: ["lang"] },
-    { label: "Kapsamı görüşmede netleşecekler", ids: ["whatsapp", "cyrillic", "cart"] },
+    { label: "Temel: ne tür bir site?", ids: ["site", "booking", "catalog", "platform"] },
+    { label: "Yönetim", ids: ["panel", "crm", "reports"] },
+    { label: "Ödeme ve otomasyon", ids: ["pos", "mail", "excel", "whatsapp"] },
+    { label: "Görünürlük", ids: ["lang", "seo", "migrate"] },
+    { label: "Özel işler", ids: ["custom"] },
   ];
 
   const ITEMS = {
-    seo: {
-      title: "İçeriğin arama motorunda görünmesi (prerender)",
-      desc: "Google tur sayfalarınızın içeriğini eksiksiz okur. Mevcut teknik SEO temelinin üzerine kurulur.",
-      days: [5, 9],
+    site: {
+      title: "Tanıtım sitesi",
+      desc: "İşletmenizi anlatan, telefonda düzgün görünen, hızlı bir site. İletişim ve teklif formu dahil.",
+      days: [5, 10],
+      lite: { label: "Tek sayfa", days: [3, 5] },
     },
-    popup: {
-      title: "Kampanya popup + çapraz satış önerileri",
-      desc: "Kampanyayı doğru anda duyurun; tur seçen misafire uygun ek tur ve araç önerilsin.",
+    booking: {
+      title: "Rezervasyon / randevu sistemi",
+      desc: "Tarih, saat, kontenjan ve kişi sayısına göre online yer ayırma; müşteriye onay e-postası.",
+      days: [10, 18],
+    },
+    catalog: {
+      title: "Ürün kataloğu + sipariş / teklif formu",
+      desc: "Ürünlerinizi fiyatıyla listeleyin; gelen sipariş ve teklif talepleri panelinize düşsün.",
+      days: [6, 12],
+      lite: { label: "Yalnızca katalog + teklif formu", days: [4, 7] },
+    },
+    platform: {
+      title: "Üyelikli platform (SaaS)",
+      desc: "Hizmetinizi başka işletmelere abonelikle satın: her müşteriye ayrı panel, paketler ve üyelik yenileme. Taply gibi.",
+      days: null,
+    },
+    panel: {
+      title: "Yönetim paneli",
+      desc: "Metin, görsel, ürün, fiyat ve talepleri kod bilmeden kendiniz yönetin. Kullanıcı rolleri ve işlem geçmişi dahil.",
+      days: [5, 10],
+    },
+    crm: {
+      title: "Müşteri takibi (CRM) + hatırlatmalar",
+      desc: "Müşteri kartları, görüşme notları ve “tekrar ara” hatırlatmaları tek yerde.",
+      days: [4, 8],
+    },
+    reports: {
+      title: "Rapor ve istatistik ekranları",
+      desc: "Satış, doluluk, tahsilat ya da ziyaret grafikleri; Excel'e aktarım.",
+      days: [3, 7],
+    },
+    pos: {
+      title: "Sanal POS ile online ödeme",
+      desc: "Kartla güvenli tahsilat; isterseniz kapora, havale ya da yerinde ödeme seçenekleriyle. POS hesabı işletmeniz adına açılır.",
       days: [3, 6],
-      lite: { label: "Yalnızca kampanya popup", days: null },
     },
-    account: {
-      title: "Kişisel hesap + üyelik/sadakat indirimi + favoriler",
-      desc: "Tekrar gelen misafire özel indirim, geçmiş rezervasyonlar ve favori turlar tek hesapta.",
-      days: [7, 11],
-      lite: { label: "Yalnızca favoriler (hesapsız)", days: null },
+    mail: {
+      title: "Otomatik e-postalar",
+      desc: "Onay, hatırlatma, makbuz ve yenileme e-postaları doğru zamanda kendiliğinden gider.",
+      days: [2, 5],
     },
-    supplier: {
-      title: "Tedarikçi / acente sistemi + maliyet-kâr + gelir/gider raporu",
-      desc: "Hangi turun hangi tedarikçiden geldiğini, tur başına maliyeti, kârı ve gelir/gider tablosunu tek ekranda görün.",
-      days: [10, 16],
-    },
-    analytics: {
-      title: "Derin analitik",
-      desc: "Misafirlerin ülke/uyruk dağılımı, rezervasyonu yarıda bırakma oranı ve en çok satan paketler.",
-      days: [5, 8],
-      lite: { label: "Yalnızca en çok satan paket", days: null },
-    },
-    transfer: {
-      title: "Araç/transfer teklifi maili + tur sonrası memnuniyet anketi",
-      desc: "Rezervasyondan sonra misafire araç kiralama veya transfer teklifi gider; tur bitince kısa bir anket.",
-      days: [4, 7],
-    },
-    lang: {
-      title: "Yeni dil ekleme",
-      desc: "AI destekli çeviri + redaksiyon ve o dile özel kontrol turu. Çeviri altyapısı hazır olduğu için her yeni dil kısa sürer.",
-      days: [1.5, 3], perUnit: "dil", qty: { min: 1, max: 6, start: 1 },
+    excel: {
+      title: "Excel ile içe / dışa aktarma",
+      desc: "Ürün, müşteri ya da rezervasyon listelerini Excel'den yükleyin, Excel'e alın.",
+      days: [2, 4],
     },
     whatsapp: {
-      title: "WhatsApp otomatik bilgilendirme",
-      desc: "E-postayla giden rezervasyon detayı ve alış saati hatırlatması WhatsApp'tan da gider. WhatsApp Business hesabı gerekir.",
+      title: "WhatsApp bildirimleri",
+      desc: "Onay ve hatırlatmalar WhatsApp'tan da gitsin. WhatsApp Business hesabı gerekir.",
       days: null,
     },
-    cyrillic: {
-      title: "Kiril alfabesi desteği",
-      desc: "Rusça gibi Kiril alfabeli diller için yazı tipi ve karakter desteği.",
-      days: null,
+    lang: {
+      title: "Ek dil",
+      desc: "AI destekli çeviri, insan redaksiyonu ve o dile özel kontrol turu. Arapça gibi sağdan sola diller dahil.",
+      days: [1.5, 3], perUnit: "dil", qty: { min: 1, max: 6, start: 1 },
     },
-    cart: {
-      title: "Sepette tarih çakışma kontrolü + paket turlar",
-      desc: "Aynı saate denk gelen iki tur sepete eklenemez; birkaç tur paket olarak satılabilir.",
+    seo: {
+      title: "Teknik SEO + Google kurulumu",
+      desc: "Temiz adresler, site haritası, Google'ın anladığı yapılandırılmış veri, Search Console ve Analytics kurulumu.",
+      days: [2, 4],
+    },
+    migrate: {
+      title: "Mevcut siteden taşıma",
+      desc: "Wix ya da başka bir sistemdeki içeriğiniz yeni siteye taşınır; eski adresler yönlendirilir, sıralama korunur.",
+      days: [2, 5],
+    },
+    custom: {
+      title: "Özel hesaplama / optimizasyon",
+      desc: "Rota planlama, fiyat önerisi, vardiya ya da stok hesabı gibi işinize özel bir problem.",
       days: null,
     },
   };
@@ -174,7 +200,7 @@
         let opts = "";
         if (item.lite) {
           opts = `<div class="route__opts"><div class="seg" role="radiogroup" aria-label="${item.title} kapsamı">
-            <label><input type="radio" name="${id}-v" value="full" checked><span>Tam paket</span></label>
+            <label><input type="radio" name="${id}-v" value="full" checked><span>Tam kapsam</span></label>
             <label><input type="radio" name="${id}-v" value="lite"><span>${item.lite.label}</span></label>
           </div></div>`;
         } else if (item.qty) {
@@ -226,30 +252,43 @@
     $("#sel-note").hidden = !noDays;
     $("#sel-list").innerHTML = lines.length
       ? lines.map(l => `<li><span>${l.name}</span><span>${l.days}</span></li>`).join("")
-      : `<li class="ticket__empty">Soldan bir iş seçerek başlayın.</li>`;
+      : `<li class="ticket__empty">Soldan bir parça seçerek başlayın.</li>`;
 
-    $("#mini-text").textContent = count ? `${count} iş · ${dMax ? range([dMin, dMax]) + " gün" : "süre görüşmede"}` : "";
+    $("#mini-text").textContent = count ? `${count} kalem · ${dMax ? range([dMin, dMax]) + " gün" : "süre görüşmede"}` : "";
     minibar.count = count;
     updateMinibar();
 
     const hash = encodeState();
-    if (hash) history.replaceState(null, "", `#secim=${hash}`);
-    else if (location.hash.startsWith("#secim=")) history.replaceState(null, "", location.pathname + location.search);
+    if (hash) history.replaceState(null, "", `#plan=${hash}`);
+    else if (location.hash.startsWith("#plan=")) history.replaceState(null, "", location.pathname + location.search);
 
-    const body = lines.length
-      ? [
-          "Merhaba,",
-          "",
-          "MaxyTrip için şu işlerle ilgileniyoruz:",
-          ...lines.map(l => `• ${l.name} — ${l.days}`),
-          "",
-          dMax ? `Tahmini toplam süre: ${range([dMin, dMax])} iş günü` : "",
-          "Ücret teklifini görüşmede konuşmak istiyoruz.",
-          "",
-          `Seçim bağlantısı: ${shareURL()}`,
-        ].join("\n")
-      : "Merhaba,\n\nMaxyTrip için bir sonraki adımları konuşmak istiyoruz.";
-    $("#send-mail").href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("MaxyTrip — seçtiğimiz işler")}&body=${encodeURIComponent(body)}`;
+    summary = { lines, dMin, dMax };
+    updateMail();
+  }
+
+  let summary = { lines: [], dMin: 0, dMax: 0 };
+  function updateMail() {
+    const { lines, dMin, dMax } = summary;
+    const brief = $("#brief").value.trim();
+    const body = [
+      "Merhaba,",
+      "",
+      ...(brief ? ["İşimiz kısaca:", brief, ""] : []),
+      ...(lines.length
+        ? [
+            "Şu parçalarla ilgileniyoruz:",
+            ...lines.map(l => `• ${l.name} — ${l.days}`),
+            "",
+            dMax ? `Tahmini toplam süre: ${range([dMin, dMax])} iş günü` : "",
+            "",
+            `Plan bağlantısı: ${shareURL()}`,
+          ]
+        : ["Bir proje için görüşmek istiyoruz."]),
+      "",
+      "İşletme / ad:",
+      "Telefon (isteğe bağlı):",
+    ].join("\n");
+    $("#send-mail").href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("KNC Studio — proje talebi")}&body=${encodeURIComponent(body)}`;
   }
 
   function encodeState() {
@@ -274,7 +313,7 @@
 
   function shareURL() {
     const h = encodeState();
-    return location.origin + location.pathname + (h ? `#secim=${h}` : "");
+    return location.origin + location.pathname + (h ? `#plan=${h}` : "");
   }
 
   function toast(msg) {
@@ -287,10 +326,10 @@
 
   if (form) {
     render();
-    const initial = decodeURIComponent(location.hash).match(/^#secim=(.+)$/);
+    const initial = decodeURIComponent(location.hash).match(/^#plan=(.+)$/);
     if (initial) decodeState(initial[1]);
     sync();
-    if (initial) requestAnimationFrame(() => $("#siradaki").scrollIntoView());
+    if (initial) requestAnimationFrame(() => $("#planla").scrollIntoView());
 
     form.addEventListener("change", e => {
       const row = e.target.closest(".route");
@@ -317,6 +356,7 @@
       }
     });
     form.addEventListener("submit", e => e.preventDefault());
+    $("#brief").addEventListener("input", updateMail);
 
     $("#copy-link").addEventListener("click", async () => {
       const url = shareURL();
@@ -328,6 +368,27 @@
       }
     });
   }
+
+  /* ---------- Case screenshot tabs ---------- */
+  $$('[role="tablist"]').forEach(list => {
+    const tabs = $$('[role="tab"]', list);
+    const select = tab => {
+      tabs.forEach(t => {
+        const on = t === tab;
+        t.setAttribute("aria-selected", String(on));
+        t.tabIndex = on ? 0 : -1;
+        document.getElementById(t.getAttribute("aria-controls")).hidden = !on;
+      });
+    };
+    list.addEventListener("click", e => { const t = e.target.closest('[role="tab"]'); if (t) select(t); });
+    list.addEventListener("keydown", e => {
+      const i = tabs.indexOf(document.activeElement);
+      if (i < 0 || !["ArrowLeft", "ArrowRight"].includes(e.key)) return;
+      const next = tabs[(i + (e.key === "ArrowRight" ? 1 : tabs.length - 1)) % tabs.length];
+      select(next);
+      next.focus();
+    });
+  });
 
   /* ---------- Nav ---------- */
   const nav = $(".nav");
