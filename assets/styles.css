@@ -285,11 +285,20 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 
 /* Planner */
 .planner { display: grid; grid-template-columns: minmax(0, 1fr) 380px; gap: 32px; align-items: start; }
-.routes { display: grid; gap: 12px; }
+.routes { display: grid; gap: 0; }
+.routes__group { border-top: 1px solid var(--line-dark); }
+.routes__group:last-of-type { border-bottom: 1px solid var(--line-dark); }
 .routes__group-label {
-  margin: 18px 0 2px; font: 500 12px/1.4 var(--f-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--text-dark-muted);
+  display: flex; align-items: center; gap: 12px; min-height: 56px; padding: 14px 2px; cursor: pointer; list-style: none;
+  font: 500 12px/1.4 var(--f-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--text-dark);
 }
-.routes__group-label:first-child { margin-top: 0; }
+.routes__group-label::-webkit-details-marker { display: none; }
+.routes__group-label::after { content: "+"; margin-left: 4px; font: 400 20px/1 var(--f-mono); color: var(--text-dark-muted); transition: transform .2s var(--ease); }
+.routes__group[open] > .routes__group-label::after { transform: rotate(45deg); }
+.routes__group-label:hover { color: #fff; }
+.routes__group-label > span:first-child { flex: 1; }
+.routes__group-count { color: var(--signal); letter-spacing: .06em; }
+.routes__group-body { display: grid; gap: 12px; padding-bottom: 20px; }
 .route {
   position: relative;
   display: grid; grid-template-columns: 28px minmax(0, 1fr) auto; gap: 6px 18px; align-items: start;

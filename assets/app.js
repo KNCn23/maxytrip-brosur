@@ -72,11 +72,14 @@
 
   /* ---------- Planner ---------- */
   // Süreler iş günü cinsinden tahmini aralıklardır; null = görüşmede netleşir.
+  // open: grup sayfa açılışında açık mı (seçili kalem içeren gruplar her zaman açılır)
   const GROUPS = [
-    { label: "Temel: ne tür bir site?", ids: ["site", "booking", "catalog", "platform"] },
-    { label: "Yönetim", ids: ["panel", "crm", "reports"] },
-    { label: "Ödeme ve otomasyon", ids: ["pos", "mail", "excel", "whatsapp"] },
-    { label: "Görünürlük", ids: ["lang", "seo", "migrate"] },
+    { label: "Temel: ne tür bir site?", ids: ["site", "booking", "catalog", "platform"], open: true },
+    { label: "Müşteri deneyimi", ids: ["rules", "search", "cart", "account", "popup"], open: true },
+    { label: "Ödeme", ids: ["pos", "payopts", "refunds"] },
+    { label: "Yönetim ve rapor", ids: ["panel", "crm", "reports", "finance", "analytics"] },
+    { label: "Otomasyon", ids: ["mail", "reminder", "aftersale", "whatsapp", "excel"] },
+    { label: "Görünürlük", ids: ["lang", "seo", "migrate", "ads"] },
     { label: "Özel işler", ids: ["custom"] },
   ];
 
@@ -103,6 +106,69 @@
       desc: "Hizmetinizi başka işletmelere abonelikle satın: her müşteriye ayrı panel, paketler ve üyelik yenileme. Taply gibi.",
       days: null,
     },
+    rules: {
+      title: "Gelişmiş rezervasyon kuralları",
+      desc: "Yetişkin/çocuk ayrımı ve yaşa göre fiyat, “en az X yaş” sınırı, müşterinin alış noktası ya da adresini yazması.",
+      days: [3, 5],
+    },
+    search: {
+      title: "Akıllı arama",
+      desc: "Yazım hatalarına rağmen doğru sonucu getirir; kategori, bölge ve tarihe göre süzer.",
+      days: [1, 2],
+    },
+    cart: {
+      title: "Sepet + paket + artan indirim",
+      desc: "Birden fazla ürün ya da hizmet tek ödemede; çakışan tarih kontrolü, paket satış ve çok alana kademeli indirim.",
+      days: [10, 16],
+    },
+    account: {
+      title: "Müşteri hesabı + sadakat indirimi + favoriler",
+      desc: "Tekrar gelen müşteriye özel indirim, geçmiş siparişler ve favoriler tek hesapta.",
+      days: [7, 11],
+      lite: { label: "Yalnızca favoriler (hesapsız)", days: [1, 2] },
+    },
+    popup: {
+      title: "Kampanya popup + çapraz satış önerileri",
+      desc: "Kampanyayı doğru anda duyurun; seçim yapan müşteriye uygun ek ürün ya da hizmet önerilsin.",
+      days: [3, 6],
+      lite: { label: "Yalnızca kampanya popup", days: [1, 2] },
+    },
+    payopts: {
+      title: "Ek ödeme seçenekleri",
+      desc: "Kapora, yerinde/varışta ödeme, havale-EFT; ödeme durumu panelde takip edilir.",
+      days: [3, 5],
+    },
+    refunds: {
+      title: "İptal ve iade takibi",
+      desc: "İptal koşuluna göre tam ya da kısmi iade hesabı; gün bazlı filtre ve liste.",
+      days: [2, 3],
+    },
+    finance: {
+      title: "Maliyet, kâr ve gelir/gider raporu",
+      desc: "Tedarikçi ya da iş ortağı bazında maliyet, satış başına kâr ve aylık gelir/gider tablosu.",
+      days: [10, 16],
+    },
+    analytics: {
+      title: "Derin analitik",
+      desc: "Müşterilerin ülke/şehir dağılımı, sepeti yarıda bırakma oranı, en çok satanlar.",
+      days: [5, 8],
+      lite: { label: "Yalnızca en çok satanlar", days: [1, 2] },
+    },
+    reminder: {
+      title: "Randevu öncesi hatırlatma + bilgi toplama",
+      desc: "Etkinlikten 1–2 gün önce müşteriye saat hatırlatması ve eksik bilgileri (oda no, adres vb.) dolduracağı bağlantı.",
+      days: [3, 5],
+    },
+    aftersale: {
+      title: "Satış sonrası e-postalar + memnuniyet anketi",
+      desc: "Alışverişten sonra ek teklif (ör. transfer, aksesuar); hizmet bitince kısa bir memnuniyet anketi.",
+      days: [4, 7],
+    },
+    ads: {
+      title: "Reklam / banner alanları",
+      desc: "Sayfa kenarlarında panelden değiştirilebilen kampanya ya da sponsor alanları.",
+      days: [2, 3],
+    },
     panel: {
       title: "Yönetim paneli",
       desc: "Metin, görsel, ürün, fiyat ve talepleri kod bilmeden kendiniz yönetin. Kullanıcı rolleri ve işlem geçmişi dahil.",
@@ -120,7 +186,7 @@
     },
     pos: {
       title: "Sanal POS ile online ödeme",
-      desc: "Kartla güvenli tahsilat; isterseniz kapora, havale ya da yerinde ödeme seçenekleriyle. POS hesabı işletmeniz adına açılır.",
+      desc: "Kartla güvenli online tahsilat; ödeme sonucu sunucuda doğrulanır. POS hesabı işletmeniz adına açılır.",
       days: [3, 6],
     },
     mail: {
@@ -146,7 +212,7 @@
     seo: {
       title: "Teknik SEO + Google kurulumu",
       desc: "Temiz adresler, site haritası, Google'ın anladığı yapılandırılmış veri, Search Console ve Analytics kurulumu.",
-      days: [2, 4],
+      days: [3, 4],
     },
     migrate: {
       title: "Mevcut siteden taşıma",
@@ -194,7 +260,7 @@
   }
 
   function render() {
-    const html = GROUPS.map(g => {
+    const html = GROUPS.map((g, gi) => {
       const rows = g.ids.map(id => {
         const item = ITEMS[id];
         let opts = "";
@@ -218,7 +284,10 @@
           ${opts}
         </div>`;
       }).join("");
-      return `<p class="routes__group-label">${g.label}</p>${rows}`;
+      return `<details class="routes__group" data-group="${gi}"${g.open ? " open" : ""}>
+        <summary class="routes__group-label"><span>${g.label}</span><span class="routes__group-count"></span></summary>
+        <div class="routes__group-body">${rows}</div>
+      </details>`;
     }).join("");
     form.insertAdjacentHTML("beforeend", html);
   }
@@ -245,6 +314,11 @@
       if (e.days) { dMin += e.days[0]; dMax += e.days[1]; }
       if (!e.days) noDays = true;
       lines.push({ name: e.name, days: e.days ? `${range(e.days)} gün` : "görüşmede" });
+    });
+
+    GROUPS.forEach((g, gi) => {
+      const n = g.ids.filter(id => state[id].on).length;
+      $(`.routes__group[data-group="${gi}"] .routes__group-count`, form).textContent = n ? `${n} seçili` : "";
     });
 
     $("#sel-count").textContent = count;
@@ -327,7 +401,12 @@
   if (form) {
     render();
     const initial = decodeURIComponent(location.hash).match(/^#plan=(.+)$/);
-    if (initial) decodeState(initial[1]);
+    if (initial) {
+      decodeState(initial[1]);
+      GROUPS.forEach((g, gi) => {
+        if (g.ids.some(id => state[id].on)) $(`.routes__group[data-group="${gi}"]`, form).open = true;
+      });
+    }
     sync();
     if (initial) requestAnimationFrame(() => $("#planla").scrollIntoView());
 
