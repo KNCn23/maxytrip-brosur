@@ -16,7 +16,7 @@
 
 ## Düzenleme
 
-Bağımlılık ve build adımı yok: saf HTML, CSS ve JavaScript.
+Build adımı yok: saf HTML, CSS ve JavaScript. Animasyonlar için GSAP (ScrollTrigger, SplitText) ve Lenis CDN üzerinden yüklenir; yüklenemezlerse site animasyonsuz çalışmaya devam eder.
 
 | Ne | Nerede |
 | --- | --- |
@@ -24,6 +24,7 @@ Bağımlılık ve build adımı yok: saf HTML, CSS ve JavaScript.
 | Planlayıcıdaki parçalar ve süreler | `assets/app.js` → `ITEMS` ve `GROUPS` |
 | İletişim e-postası | `assets/app.js` → `CONTACT_EMAIL` ve `index.html` iletişim bölümü |
 | Renkler ve yazı tipleri | `assets/styles.css` → `:root` |
+| Animasyonlar (yumuşak kaydırma, başlık ve kart girişleri, sayaçlar) | `assets/motion.js` |
 | Ekran görüntüleri | `assets/img/` (Taply görüntüleri yerel demo verisiyle alındı) |
 
 ## Yerelde çalıştırma

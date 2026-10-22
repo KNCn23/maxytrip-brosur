@@ -46,9 +46,12 @@
   mm.add("(prefers-reduced-motion: no-preference)", () => {
     const restore = [];
 
-    // SplitText's automatic aria-label drops the space a <br> stands for, so label from innerText.
+    // SplitText's automatic aria-label drops the space a <br> stands for, so build the label
+    // from the source text (not innerText, which would pick up CSS text-transform).
     const split = (el, type, animate) => {
-      const label = el.innerText.replace(/\s+/g, " ").trim();
+      const copy = el.cloneNode(true);
+      copy.querySelectorAll("br").forEach(br => br.replaceWith(" "));
+      const label = copy.textContent.replace(/\s+/g, " ").trim();
       SplitText.create(el, {
         type,
         autoSplit: true,
