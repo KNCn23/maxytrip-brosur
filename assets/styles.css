@@ -596,3 +596,37 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   .hero__contours path { stroke-dashoffset: 0; }
   .js .reveal { opacity: 1; transform: none; }
 }
+
+/* Motion layer (assets/motion.js) */
+.marquee {
+  margin-top: 32px; overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.marquee__track { display: flex; gap: 8px; width: max-content; will-change: transform; }
+.marquee .stack { flex: none; flex-wrap: nowrap; margin-top: 0; }
+.marquee .stack li { white-space: nowrap; }
+
+.spark-layer { position: fixed; inset: 0; width: 100vw; height: 100vh; z-index: 70; pointer-events: none; }
+
+.skill.has-spotlight { position: relative; isolation: isolate; overflow: hidden; }
+.skill.has-spotlight::before,
+.skill.has-spotlight::after {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+  opacity: 0; transition: opacity .35s var(--ease);
+}
+.skill.has-spotlight::before {
+  z-index: -1;
+  background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 50%), rgba(27, 86, 108, .2), transparent 70%);
+}
+.skill.has-spotlight::after {
+  padding: 1px;
+  background: radial-gradient(180px circle at var(--mx, 50%) var(--my, 50%), var(--sea-600), transparent 75%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+}
+.skill--feature.has-spotlight::before { background: radial-gradient(300px circle at var(--mx, 50%) var(--my, 50%), rgba(246, 185, 43, .16), transparent 70%); }
+.skill--feature.has-spotlight::after { background: radial-gradient(200px circle at var(--mx, 50%) var(--my, 50%), var(--signal), transparent 75%); }
+.skill.has-spotlight:hover::before,
+.skill.has-spotlight:hover::after { opacity: 1; }
