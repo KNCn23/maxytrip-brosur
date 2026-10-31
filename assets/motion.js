@@ -62,19 +62,7 @@
       });
     };
 
-    /* ---------- Hero title: React Bits SplitText (chars rise in) ---------- */
-    const heroTitle = $(".hero__title");
-    if (heroTitle) {
-      heroTitle.classList.remove("reveal"); // GSAP owns this one; app.js staggers the rest
-      split(heroTitle, "words,chars", self => gsap.from(self.chars, {
-        opacity: 0, y: 40, duration: 0.6, ease: "power3.out", stagger: 0.03, delay: 0.15,
-      }));
-    }
-
-    gsap.to(".hero__contours", {
-      yPercent: 14, ease: "none",
-      scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true },
-    });
+    // Hero stays calm on purpose: one fade (app.js) and the board's single flip, nothing else.
 
     /* ---------- Section titles: React Bits BlurText (words unblur on enter) ---------- */
     $$(".section__title").forEach(el => split(el, "words", self => gsap.from(self.words, {
@@ -239,7 +227,7 @@
     else drawing = false;
   };
   document.addEventListener("click", e => {
-    if (!e.target.closest(".btn, .route, .seg label, .stepper button, .frame__tabs button, .board__rows li")) return;
+    if (!e.target.closest(".btn, .route, .seg label, .stepper button, .frame__tabs button")) return;
     if (e.detail === 0) return; // keyboard activation: no pointer position
     const start = performance.now();
     const offset = Math.random() * Math.PI;
@@ -251,8 +239,8 @@
 
   if (!finePointer) return;
 
-  /* ---------- React Bits Magnet: main CTAs lean toward the pointer ---------- */
-  const magnets = $$(".hero__actions .btn, .cta__actions .btn").map(el => ({
+  /* ---------- React Bits Magnet: closing CTAs lean toward the pointer ---------- */
+  const magnets = $$(".cta__actions .btn").map(el => ({
     el,
     x: gsap.quickTo(el, "x", { duration: 0.6, ease: "power3.out" }),
     y: gsap.quickTo(el, "y", { duration: 0.6, ease: "power3.out" }),

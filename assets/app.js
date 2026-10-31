@@ -29,7 +29,7 @@
     cells.forEach((cell, i) => {
       const target = cell.dataset.target;
       if (target === " ") return;
-      let turns = 5 + Math.floor(Math.random() * 9);
+      let turns = 2 + Math.floor(Math.random() * 3);
       setTimeout(function tick() {
         cell.classList.remove("is-turning");
         void cell.offsetWidth;
@@ -57,8 +57,7 @@
         makeFlaps(row.dataset.status, statusWidth, "status" + (live ? " status--live" : ""))
       );
       $$(".flaps", row).forEach(f => f.setAttribute("aria-hidden", "true"));
-      spin($$(".flap", row), 350 + r * 120);
-      row.addEventListener("mouseenter", () => spin($$(".flap", row)));
+      spin($$(".flap", row), 300 + r * 60);
     });
   }
 
@@ -344,9 +343,11 @@
   function updateMail() {
     const { lines, dMin, dMax } = summary;
     const brief = $("#brief").value.trim();
+    const who = [$("#name").value.trim(), $("#company").value.trim()].filter(Boolean).join(", ");
     const body = [
       "Merhaba,",
       "",
+      ...(who ? [`Ben ${who}.`, ""] : []),
       ...(brief ? ["İşimiz kısaca:", brief, ""] : []),
       ...(lines.length
         ? [
@@ -435,7 +436,7 @@
       }
     });
     form.addEventListener("submit", e => e.preventDefault());
-    $("#brief").addEventListener("input", updateMail);
+    ["#brief", "#name", "#company"].forEach(sel => $(sel).addEventListener("input", updateMail));
 
     $("#copy-link").addEventListener("click", async () => {
       const url = shareURL();

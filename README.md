@@ -7,9 +7,10 @@
 ## İçerik
 
 - **Yayındaki işler panosu**: yayındaki projeleri havalimanı panosu gibi gösteren açılış bölümü; son satır “Sizin projeniz”
-- **İşlerimiz**: iki örnek proje
+- **İşlerimiz**: iki müşteri projesi ve bir kişisel proje
   - **MaxyTrip**: tur ve araç kiralama rezervasyon sitesi (ekran görüntüsü üzerinde işaretli, teslim edilen 21 özellik açılır listede)
   - **Taply**: NFC/QR dijital menü platformu; tanıtım sitesi, kafe paneli ve yönetim paneli (sekmeli ekran görüntüleri, telefonda menü)
+  - **kncn23.github.io**: ekipten Ata Kaan Can Olcay'ın sıfır bağımlılıklı kişisel sitesi (Canvas 2D ışık şeritleri, iki dil, GitHub API)
 - **Neler yapıyoruz**: hizmetler (tanıtım sitesi, online satış, yönetim paneli, SaaS, otomasyon, taşıma, optimizasyon)
 - **Planlayıcı**: ziyaretçi ihtiyacı olan parçaları seçer, tahmini süreyi anında görür (ücret görüşmede verilir), işini birkaç cümleyle yazar, planı e-postayla gönderir veya bağlantı olarak paylaşır (`#plan=...`)
 - **Biz**, süreç, SSS ve iletişim

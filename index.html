@@ -68,7 +68,7 @@
         <div class="hero__copy">
           <p class="eyebrow eyebrow--signal reveal">İki kişilik yazılım stüdyosu · Ankara</p>
           <h1 class="hero__title reveal">İşletmenize özel<br><span>web çözümleri.</span></h1>
-          <p class="hero__lead reveal">Her projeye işletmenizi tanıyarak başlıyoruz. İhtiyacınıza göre web sitesini, rezervasyon ya da sipariş sistemini, online ödemeyi ve kendi yöneteceğiniz paneli birlikte planlayıp geliştiriyoruz. Tur acentesi <strong>MaxyTrip</strong>'in rezervasyon sitesi ve NFC dijital menü platformu <strong>Taply</strong>, geliştirdiğimiz projelerden ikisi.</p>
+          <p class="hero__lead reveal">Birbirine benzeyen hazır siteler yapmıyoruz; her projeye işletmenizi tanıyarak başlıyoruz. İhtiyacınıza göre web sitesini, rezervasyon ya da sipariş sistemini, online ödemeyi ve kendi yöneteceğiniz paneli birlikte planlayıp geliştiriyoruz. Tur acentesi <strong>MaxyTrip</strong>'in rezervasyon sitesi ve NFC dijital menü platformu <strong>Taply</strong>, geliştirdiğimiz projelerden ikisi.</p>
           <div class="hero__actions reveal">
             <a class="btn btn--signal" href="#planla">Projenizi planlayın</a>
             <a class="btn btn--ghost" href="#isler">İşlerimize bakın</a>
@@ -88,9 +88,10 @@
             <li data-code="TP01" data-name="TAPLY SİTESİ" data-status="YAYINDA"></li>
             <li data-code="TP02" data-name="TAPLY KAFE PANELİ" data-status="YAYINDA"></li>
             <li data-code="TP03" data-name="TAPLY ADMİN PANELİ" data-status="YAYINDA"></li>
+            <li data-code="KN01" data-name="KİŞİSEL PORTFOLYO" data-status="YAYINDA"></li>
             <li data-code="YENİ" data-name="SİZİN PROJENİZ" data-status="SIRADA"></li>
           </ul>
-          <figcaption class="board__foot"><span><b>2</b> canlı proje · <b><span data-count="750">750</span>+</b> otomatik test</span><span>Yeni projelere <b>açığız</b></span></figcaption>
+          <figcaption class="board__foot"><span><b>3</b> canlı proje · <b>750+</b> otomatik test</span><span>Yeni projelere <b>açığız</b></span></figcaption>
         </figure>
       </div>
 
@@ -112,7 +113,7 @@
         <header class="section__head">
           <p class="eyebrow">İşlerimiz</p>
           <h2 class="section__title">Yayında ve aktif olarak kullanılıyor</h2>
-          <p class="section__lead">İki farklı sektör, iki farklı ihtiyaç. İkisinde de müşterinin göreceği siteyi ve işletmenin arkada kullanacağı paneli birlikte kurduk.</p>
+          <p class="section__lead">İki farklı sektör, iki farklı ihtiyaç: ikisinde de müşterinin göreceği siteyi ve işletmenin arkada kullanacağı paneli birlikte kurduk. Sonda, tasarım ve kod tarafını gösteren bir kişisel projemiz var.</p>
         </header>
 
         <!-- MaxyTrip -->
@@ -297,6 +298,42 @@
             </div>
           </details>
         </article>
+
+        <!-- Kişisel site -->
+        <article class="case" id="portfolyo">
+          <header class="case__head">
+            <div>
+              <p class="case__tag">Kişisel proje · Mühendis portfolyosu</p>
+              <h3 class="case__title" lang="en">kncn23.github.io</h3>
+              <p class="case__lead">Ekibimizden Ata Kaan Can Olcay'ın kişisel sitesi. Hazır tema ya da framework kullanmadan, saf HTML, CSS ve JavaScript ile sıfırdan yazıldı: koyu, sinematik bir tasarım, kapakta ışık şeritleri ve projeleri anlatan küçük canlı şemalar.</p>
+            </div>
+            <dl class="case__facts">
+              <div><dt>Ne yaptık</dt><dd>Tasarım, kod, yayın</dd></div>
+              <div><dt>Teknoloji</dt><dd>HTML · CSS · JavaScript · Canvas 2D</dd></div>
+              <div><dt>Bağımlılık</dt><dd>Sıfır; build adımı yok</dd></div>
+              <div><dt>Adres</dt><dd><a href="https://kncn23.github.io" target="_blank" rel="noopener">kncn23.github.io ↗</a></dd></div>
+            </dl>
+          </header>
+
+          <div class="showcase">
+            <figure class="frame frame--desktop">
+              <div class="frame__bar" aria-hidden="true"><i></i><i></i><i></i><span>kncn23.github.io</span></div>
+              <div class="frame__screen">
+                <img src="assets/img/kncn23-desktop.jpg" width="1800" height="1125" alt="kncn23.github.io kapak alanı: koyu zemin, ışık şeritleri ve projeleri bağlayan şema kartı" loading="lazy">
+              </div>
+            </figure>
+            <figure class="frame frame--phone">
+              <div class="frame__screen">
+                <img src="assets/img/kncn23-mobile.jpg" width="600" height="1300" alt="kncn23.github.io'nun telefondaki görünümü" loading="lazy">
+              </div>
+            </figure>
+            <ul class="legend legend--plain">
+              <li><span><strong>Canvas ile ışık şeritleri</strong> Kapaktaki şeritler Canvas 2D ile çiziliyor; ekranda görünmediğinde duruyor, pil ve işlemciyi yormuyor.</span></li>
+              <li><span><strong>İki dil, canlı veri</strong> Türkçe ve İngilizce; tarayıcının dilini algılıyor. Proje yıldızları GitHub API'den anlık geliyor, bağlantı yoksa sayfa yine çalışıyor.</span></li>
+              <li><span><strong>Erişilebilir hareket</strong> Kaydırmayla ilerleyen çizgi, filtrelenebilir proje listesi ve sayaçlar; “hareketi azalt” ayarı açık olan ziyaretçide hepsi kapanıyor.</span></li>
+            </ul>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -371,7 +408,7 @@
         </div>
 
         <ul class="stack" aria-label="Kullandığımız teknolojiler">
-          <li>TypeScript</li><li>JavaScript</li><li>Node.js</li><li>Python</li><li>Java</li><li>C / C++</li><li>SQL</li><li>PostgreSQL</li><li>Supabase</li><li>Spring Boot</li><li>Fastify</li><li>FastAPI</li><li>iyzico</li><li>OR-Tools / CP-SAT</li><li>scikit-learn</li><li>OpenCV</li><li>Playwright</li><li>Linux</li><li>Git</li>
+          <li>HTML / CSS</li><li>TypeScript</li><li>JavaScript</li><li>Canvas 2D</li><li>GSAP</li><li>Node.js</li><li>Python</li><li>Java</li><li>C / C++</li><li>SQL</li><li>PostgreSQL</li><li>Supabase</li><li>Spring Boot</li><li>Fastify</li><li>FastAPI</li><li>iyzico</li><li>OR-Tools / CP-SAT</li><li>scikit-learn</li><li>OpenCV</li><li>Playwright</li><li>Linux</li><li>Git</li>
         </ul>
       </div>
     </section>
@@ -415,6 +452,10 @@
             </dl>
             <ul class="ticket__list" id="sel-list"><li class="ticket__empty">Soldan bir parça seçerek başlayın.</li></ul>
             <p class="ticket__note" id="sel-note" hidden>Süresi görüşmede netleşecek kalemler toplama dahil değildir.</p>
+            <div class="ticket__who">
+              <input id="name" type="text" autocomplete="name" placeholder="Adınız" aria-label="Adınız">
+              <input id="company" type="text" autocomplete="organization" placeholder="Şirketiniz" aria-label="Şirketiniz">
+            </div>
             <label class="ticket__brief">
               <span>İşinizi birkaç cümleyle anlatın <small>(isteğe bağlı)</small></span>
               <textarea id="brief" rows="3" maxlength="600" placeholder="Örn. Butik otelimiz için oda rezervasyonu ve kendi yöneteceğimiz bir panel istiyoruz."></textarea>
@@ -466,11 +507,11 @@
           <h2 class="section__title">İlk mesajdan yayına beş adım</h2>
         </header>
         <ol class="steps">
-          <li><span class="steps__no">01</span><h3>Tanışma</h3><p>İşinizi, müşterinizi ve şu an elle yaptığınız işleri dinleriz.</p></li>
-          <li><span class="steps__no">02</span><h3>Kapsam ve sabit teklif</h3><p>Ne yapılacağını yazılı olarak netleştirir, kalem kalem sabit ücret ve takvim veririz.</p></li>
-          <li><span class="steps__no">03</span><h3>Geliştirme</h3><p>İlerlemeyi test adresinde canlı izlersiniz; erken görür, erken yön verirsiniz.</p></li>
-          <li><span class="steps__no">04</span><h3>Test ve yayın</h3><p>Otomatik testler geçince ve siz onaylayınca yayına alırız.</p></li>
-          <li><span class="steps__no">05</span><h3>Garanti ve büyüme</h3><p>Teslimden sonraki 1 ay içinde çıkan hataları ücretsiz düzeltiriz; sonraki parçaları birlikte planlarız.</p></li>
+          <li><span class="steps__no">01</span><h3>Tanışma</h3><span class="steps__time">İlk görüşme</span><p>İşinizi, müşterinizi ve şu an elle yaptığınız işleri dinleriz.</p></li>
+          <li><span class="steps__no">02</span><h3>Kapsam ve sabit teklif</h3><span class="steps__time">~1 hafta</span><p>Ne yapılacağını yazılı olarak netleştirir, kalem kalem sabit ücret ve takvim veririz.</p></li>
+          <li><span class="steps__no">03</span><h3>Geliştirme</h3><span class="steps__time">Seçtiğiniz parçalara göre</span><p>İlerlemeyi test adresinde canlı izlersiniz; erken görür, erken yön verirsiniz.</p></li>
+          <li><span class="steps__no">04</span><h3>Test ve yayın</h3><span class="steps__time">~1 hafta</span><p>Otomatik testler geçince ve siz onaylayınca yayına alır, ekibinizi yönetim paneline alıştırırız.</p></li>
+          <li><span class="steps__no">05</span><h3>Garanti ve büyüme</h3><span class="steps__time">1 ay garanti</span><p>Teslimden sonraki 1 ay içinde çıkan hataları ücretsiz düzeltiriz; sonraki parçaları birlikte planlarız.</p></li>
         </ol>
       </div>
     </section>
@@ -482,11 +523,19 @@
         <div class="faq__list">
           <details>
             <summary>Ücreti nasıl öğrenirim?</summary>
-            <p>Yukarıdaki planlayıcıdan seçiminizi ya da birkaç cümlelik bir açıklamayı bize gönderin. Kısa bir görüşmeyle kapsamı netleştirdikten sonra kalem kalem sabit teklif veririz.</p>
+            <p>Her proje farklı olduğu için fiyatı sitede yazmıyoruz. Yukarıdaki planlayıcıdan seçiminizi ya da birkaç cümlelik bir açıklamayı bize gönderin. Kısa bir görüşmeyle kapsamı netleştirdikten sonra kalem kalem sabit teklif veririz.</p>
           </details>
           <details>
             <summary>Bir proje ne kadar sürer?</summary>
             <p>Kapsama göre değişir. Tek sayfalık bir site genellikle 3–5, çok sayfalı bir tanıtım sitesi 5–10 iş günü sürer; rezervasyon, ödeme ve yönetim paneli içeren bir sistem birkaç hafta alır. Planlayıcıda seçtiğiniz parçalara göre tahmini süreyi hemen görebilirsiniz; kesin takvim teklifte yazılır.</p>
+          </details>
+          <details>
+            <summary>Planlayıcıdaki süreler kesin mi?</summary>
+            <p>Hayır, yaklaşık. Seçtiğiniz parçalara göre kaba bir tahmin veriyoruz; kesin takvim ilk görüşmeden sonra teklifte yazılır.</p>
+          </details>
+          <details>
+            <summary>Listede olmayan bir özellik isteyebilir miyim?</summary>
+            <p>Elbette. Planlayıcıdaki açıklama alanına yazın; görüşmede birlikte değerlendirip süresini netleştiririz.</p>
           </details>
           <details>
             <summary>Teslimden sonra bir hata çıkarsa ne olur?</summary>
@@ -522,7 +571,7 @@
           </details>
           <details>
             <summary>Alan adı, sunucu ve ödeme hesabı ne olacak?</summary>
-            <p>Alan adını ve sunucuyu sizin adınıza kurmanıza yardım ederiz. Online ödeme için sanal POS hesabının işletmeniz adına açılması gerekir; hangi bilgilerin gerektiğini teklifte ayrıca listeleriz.</p>
+            <p>Alan adını ve sunucuyu sizin adınıza kurmanıza yardım ederiz. Online ödeme için bankanızdan işletmeniz adına bir sanal POS hesabı açmanız yeterli; bağlantı bilgilerini bize ilettiğinizde kurulumu ve test ödemelerini biz yaparız.</p>
           </details>
         </div>
       </div>
