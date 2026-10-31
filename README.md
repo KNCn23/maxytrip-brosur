@@ -28,6 +28,8 @@ Build adımı yok: saf HTML, CSS ve JavaScript. Yumuşak kaydırma ve bölüm gi
 | Animasyonlar (kaydırmayla oynayan açılış sahnesi, yumuşak kaydırma, bölüm girişleri) | `assets/motion.js`; sahnenin bitmiş hali `assets/styles.css` → `.intro` |
 | Ekran görüntüleri | `assets/img/` (Taply görüntüleri yerel demo verisiyle alındı) |
 
+**Yayından önce:** `index.html`'deki `styles.css`, `app.js` ve `motion.js` bağlantılarının sonundaki `?v=…` değerini değiştirin. Aksi halde siteyi önceden açmış ziyaretçilerin tarayıcısı yeni HTML'i eski CSS/JS ile çalıştırabilir.
+
 ## Yerelde çalıştırma
 
 ```bash
