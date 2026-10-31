@@ -1,24 +1,27 @@
 /* KNC Studio — studio site
-   Design system: Moktaine/knc-studio DESIGN.md — near-black ink, umber surface, a cream ladder and one muted gold.
-   No gradients, no shadows, no rounded corners; hairlines organise, dashed = not yet, gold = chosen or built. */
+   Design system: Moktaine/knc-studio DESIGN.md, in its "Mermer" palette (src/dev/themes.js):
+   marble ground, an ink ladder for text, one bronze accent, a warm stone surface.
+   No gradients, no shadows, no rounded corners; hairlines organise, dashed = not yet, bronze = chosen or built. */
 :root {
-  --sea-900: #0f0f0d;
-  --sea-800: #0f0f0d;
-  --sea-700: #1a1713;
-  --sea-600: rgb(239 233 220 / .55);
-  --foam: #0f0f0d;
-  --paper: #1a1713;
-  --ink: #efe9dc;
-  --muted: rgb(239 233 220 / .7);
-  --line: rgb(239 233 220 / .12);
-  --line-dark: rgb(239 233 220 / .12);
-  --dash: rgb(239 233 220 / .3);
-  --text-dark: #efe9dc;
-  --text-dark-muted: rgb(239 233 220 / .55);
-  --signal: #c9ab70;
-  --signal-ink: #0f0f0d;
-  --gold-45: rgb(201 171 112 / .45);
-  --lagoon: #c9ab70;
+  color-scheme: light;
+  --sea-900: #f3efe7;
+  --sea-800: #f3efe7;
+  --sea-700: #e8e1d4;
+  --sea-600: rgb(29 27 23 / .62);
+  --foam: #f3efe7;
+  --paper: #e8e1d4;
+  --stone: #ddd3c2;
+  --ink: #1d1b17;
+  --muted: rgb(29 27 23 / .72);
+  --line: rgb(29 27 23 / .12);
+  --line-dark: rgb(29 27 23 / .12);
+  --dash: rgb(29 27 23 / .3);
+  --text-dark: #1d1b17;
+  --text-dark-muted: rgb(29 27 23 / .62);
+  --signal: #8c6a35;
+  --signal-ink: #f3efe7;
+  --gold-45: rgb(140 106 53 / .45);
+  --lagoon: #8c6a35;
 
   --f-display: "Cormorant Garamond", "Times New Roman", serif;
   --f-body: "Inter", system-ui, sans-serif;
@@ -125,51 +128,60 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   letter-spacing: -.035em; color: var(--sea-900); -webkit-text-stroke: 2px var(--ink); paint-order: stroke fill;
 }
 .hero__title span {
+  display: inline-block; white-space: nowrap;
   font: 400 italic 1.1em/1.02 var(--f-display); letter-spacing: -.01em;
   color: var(--signal); -webkit-text-stroke: 0;
 }
 
-/* Opening, after Moktaine/knc-studio "the drawing that finishes itself" (≈2s, once, not pinned):
-   the page loads as a wireframe — dashed nav boxes, a dashed frame crossed by dashed diagonals,
-   an outlined headline with a ghost of its gold half. Then dashed lines are wiped away by solid
-   ones, the cross fades, the frame fills with umber and the board's content rises into it.
-   Base styles are the finished state, so reduced motion simply shows the built page. */
+/* Topbar wireframe: driven by the intro scene in motion.js; base styles are the finished state. */
 .topbar__inner { position: relative; }
-.topbar__wire {
-  position: absolute; inset: 0; display: flex; align-items: center; gap: 24px; pointer-events: none;
-  opacity: 0; animation: fade-out .5s var(--ease) .55s backwards;
-}
+.topbar__wire { position: absolute; inset: 0; display: flex; align-items: center; gap: 24px; pointer-events: none; opacity: 0; }
 .topbar__wire-links { display: flex; gap: 22px; margin-left: auto; }
 .wbox { display: block; width: 64px; height: 11px; border: 1px dashed var(--dash); }
 .wbox--logo { width: 120px; height: 15px; }
 .wbox--cta { width: 132px; height: 40px; }
-.topbar__inner > :not(.topbar__wire) { animation: rise .6s var(--ease) .6s both; }
-.topbar::before, .topbar::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; pointer-events: none; }
-.topbar::before { border-top: 1px dashed var(--dash); clip-path: inset(0 0 0 100%); animation: wipe-out .9s var(--ease) .5s both; }
-.topbar::after { border-top: 1px solid var(--line); animation: wipe-in .9s var(--ease) .5s both; }
+.topbar__rule { position: absolute; left: 0; right: 0; bottom: -1px; pointer-events: none; }
+.topbar__rule--dash { border-top: 1px dashed var(--dash); clip-path: inset(0 0 0 100%); }
+.topbar__rule--solid { border-top: 1px solid var(--line); }
 
-.hero__fill { position: relative; display: inline-block; padding-right: .12em; animation: clear-text 1.6s linear; }
-.hero__fill::before, .hero__fill::after { content: attr(data-text); position: absolute; left: 0; top: 0; }
-.hero__fill::before { color: transparent; -webkit-text-stroke: 1px var(--signal); opacity: .2; }
-.hero__fill::after { color: var(--signal); animation: wipe-in 1.1s var(--ease) .5s both; }
-
-.board { position: relative; }
-.board::before, .board::after { content: ""; position: absolute; inset: -1px; pointer-events: none; }
-.board::before { border: 1px dashed var(--dash); clip-path: inset(0 0 0 100%); animation: wipe-out .9s var(--ease) .55s both; }
-.board::after { border: 1px solid var(--gold-45); animation: wipe-in .9s var(--ease) .55s both; }
-.board { animation: fill-warm .7s var(--ease) .85s both; }
-.board__cross {
-  position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none;
-  opacity: 0; animation: fade-out .6s var(--ease) .6s backwards;
+/* ---------- Intro scene, after Moktaine/knc-studio "The Drawing That Finishes Itself" ----------
+   Pinned and scrubbed by motion.js: dashed wireframe → bronze, the frame fills with stone,
+   the arch with the KNC seal rises out of its own wireframe, then the scene steps aside. */
+.intro { position: relative; background: var(--sea-900); }
+.intro__stage {
+  display: flex; flex-direction: column;
+  height: calc(100svh - 64px); min-height: 520px;
+  padding: clamp(20px, 4vh, 44px) var(--gutter) 0;
 }
-.board__cross line { stroke: var(--dash); stroke-width: 1; stroke-dasharray: 4 5; }
-.board > :not(.board__cross) { animation: rise .6s var(--ease) 1.1s both; }
-@keyframes wipe-in { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 -20% 0 0); } }
-@keyframes wipe-out { from { clip-path: inset(0 0 0 0); } to { clip-path: inset(0 0 0 100%); } }
-@keyframes rise { from { opacity: 0; transform: translateY(6px); } }
-@keyframes fade-out { from { opacity: 1; } to { opacity: 0; } }
-@keyframes fill-warm { from { background-color: var(--sea-900); } }
-@keyframes clear-text { from, to { color: transparent; } }
+.intro__headline {
+  flex: none; display: flex; flex-wrap: wrap; align-items: baseline; column-gap: .26em;
+  margin: 0 0 clamp(18px, 3.4vh, 36px);
+  font: 300 clamp(2.6rem, 9vw, 6rem)/1.02 var(--f-body);
+}
+.intro__a { letter-spacing: -.035em; color: var(--sea-900); -webkit-text-stroke: 1.5px var(--ink); paint-order: stroke fill; }
+.intro__b { display: inline-grid; font: 400 italic 1.1em/1.02 var(--f-display); letter-spacing: -.01em; white-space: nowrap; }
+.intro__ghost, .intro__fill { grid-area: 1 / 1; }
+.intro__ghost { color: transparent; -webkit-text-stroke: 1px var(--signal); opacity: .25; }
+.intro__fill { color: var(--signal); padding-right: .1em; }
+.intro__frame { position: relative; flex: 1 1 auto; min-height: 0; overflow: hidden; container-type: size; }
+.intro__bg { position: absolute; inset: 0; background: var(--paper); }
+.intro__cross { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; }
+.intro__cross line { stroke: var(--dash); stroke-width: 1; stroke-dasharray: 4 5; }
+.intro__line { position: absolute; inset: 0; pointer-events: none; }
+.intro__line--dash { border: 1px dashed var(--dash); clip-path: inset(0 0 0 100%); }
+.intro__line--solid { border: 1px solid var(--gold-45); }
+.intro__art {
+  position: absolute; left: 50%; top: 50%; translate: -50% -50%;
+  width: min(100cqw, 100cqh * 150 / 210); aspect-ratio: 150 / 210;
+}
+.intro__art svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.intro__wire { opacity: 0; }
+.intro__hint {
+  flex: none; display: flex; align-items: center; justify-content: center; gap: 14px; height: 56px;
+  font: 400 11px/1 var(--f-body); letter-spacing: .26em; text-transform: uppercase; color: var(--text-dark-muted);
+}
+.intro__hint::before { content: ""; width: 1px; height: 18px; background: var(--dash); }
+
 .hero__lead { margin-top: 26px; max-width: 34em; font-size: 17px; line-height: 1.75; color: var(--muted); }
 .hero__lead strong { color: var(--ink); font-weight: 400; }
 .hero__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
@@ -179,7 +191,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   --cell: clamp(11px, .96vw, 14px);
   margin: 0;
   background: var(--paper);
-  border: 1px solid transparent; /* drawn by ::before / ::after */
+  border: 1px solid var(--gold-45);
   border-radius: 0;
   padding: 18px 18px 14px;
 }
@@ -205,7 +217,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   background: var(--sea-900);
   border-radius: 0;
 }
-.flap::after { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: rgb(26 23 19 / .8); }
+.flap::after { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: var(--paper); }
 .flap.is-space { background: transparent; }
 .flap.is-space::after { display: none; }
 .flap.is-turning { animation: turn .09s linear; }
@@ -312,7 +324,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .ledger__group li + li { border-top: 1px solid var(--line); }
 .ledger__group li::before {
   content: ""; position: absolute; left: 0; top: 15px; width: 18px; height: 18px; border-radius: 0;
-  background: var(--lagoon) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath d='M5 9.3l2.6 2.6L13 6.5' fill='none' stroke='%230f0f0d' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 18px no-repeat;
+  background: var(--lagoon) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath d='M5 9.3l2.6 2.6L13 6.5' fill='none' stroke='%23f3efe7' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 18px no-repeat;
 }
 .ledger__group strong { display: block; color: var(--ink); font-size: 15px; font-weight: 400; margin-bottom: 2px; }
 
@@ -348,7 +360,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   transition: background-color .15s, border-color .15s;
 }
 .route__check:checked {
-  background: var(--signal) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6.5 12.4l3.6 3.6 7.4-7.6' fill='none' stroke='%230f0f0d' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 22px no-repeat;
+  background: var(--signal) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6.5 12.4l3.6 3.6 7.4-7.6' fill='none' stroke='%23f3efe7' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 22px no-repeat;
   border: 1px solid var(--signal);
 }
 .route__title { font: 300 24px/1.25 var(--f-display); color: var(--ink); }
@@ -622,6 +634,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .js .reveal { opacity: 1; transform: none; }
+  .intro__hint { visibility: hidden; }
 }
 
 ::selection { background: var(--signal); color: var(--signal-ink); }

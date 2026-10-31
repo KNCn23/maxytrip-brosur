@@ -5,16 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>KNC Studio — İşinize özel web sitesi ve yönetim paneli</title>
   <meta name="description" content="KNC Studio iki kişilik bir yazılım stüdyosu. İşletmenize özel web sitesi, rezervasyon ve sipariş sistemi, online ödeme ve kendi yöneteceğiniz paneli sıfırdan kuruyoruz.">
-  <meta name="theme-color" content="#0f0f0d">
+  <meta name="theme-color" content="#f3efe7">
   <meta property="og:type" content="website">
   <meta property="og:title" content="KNC Studio — İşinize özel web sitesi ve yönetim paneli">
   <meta property="og:description" content="İşletmenize özel web sitesi ve yönetim paneli. maxytrip.com ve Taply'yi biz geliştirdik. Projenizi planlayın, tahmini süreyi görün.">
   <meta property="og:image" content="https://kncn23.github.io/maxytrip-brosur/assets/img/maxytrip-desktop.jpg">
   <meta property="og:locale" content="tr_TR">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230f0f0d'/%3E%3Ccircle cx='16' cy='16' r='10' fill='%23c9ab70'/%3E%3Ctext x='16' y='19.5' font-family='serif' font-size='9' text-anchor='middle' fill='%230f0f0d'%3EKNC%3C/text%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23f3efe7'/%3E%3Ccircle cx='16' cy='16' r='10' fill='%238c6a35'/%3E%3Ctext x='16' y='19.5' font-family='serif' font-size='9' text-anchor='middle' fill='%23f3efe7'%3EKNC%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&text=KNC&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lenis@1.3.27/dist/lenis.css">
   <link rel="stylesheet" href="assets/styles.css">
   <script>document.documentElement.classList.add("js")</script>
@@ -29,6 +30,8 @@
         <span class="topbar__wire-links"><span class="wbox"></span><span class="wbox"></span><span class="wbox"></span><span class="wbox"></span><span class="wbox"></span></span>
         <span class="wbox wbox--cta"></span>
       </div>
+      <span class="topbar__rule topbar__rule--dash" aria-hidden="true"></span>
+      <span class="topbar__rule topbar__rule--solid" aria-hidden="true"></span>
       <a class="brand" href="#top" aria-label="KNC Studio — sayfa başı">
         <span class="brand__mark" aria-hidden="true"><i></i><i></i></span>
         <span class="brand__name">KNC Studio</span>
@@ -49,13 +52,54 @@
   </header>
 
   <main id="icerik">
+    <!-- INTRO: after Moktaine/knc-studio's opening scene (wireframe → built), scrubbed by motion.js -->
+    <section class="intro" aria-label="KNC Studio">
+      <div class="intro__stage">
+        <p class="intro__headline" aria-label="Bir fikir, çalışan bir ürün.">
+          <span class="intro__a" aria-hidden="true">Bir fikir,</span>
+          <span class="intro__b" aria-hidden="true"><span class="intro__ghost">çalışan bir ürün.</span><span class="intro__fill">çalışan bir ürün.</span></span>
+        </p>
+        <div class="intro__frame" aria-hidden="true">
+          <div class="intro__bg"></div>
+          <svg class="intro__cross" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <line x1="0" y1="0" x2="100" y2="100" vector-effect="non-scaling-stroke"/>
+            <line x1="100" y1="0" x2="0" y2="100" vector-effect="non-scaling-stroke"/>
+          </svg>
+          <div class="intro__art">
+            <svg class="intro__decor" viewBox="0 0 150 210" preserveAspectRatio="xMidYMid meet">
+              <line x1="-330" y1="-4000" x2="-330" y2="4000" stroke="var(--ink)" stroke-opacity=".07" vector-effect="non-scaling-stroke"/><line x1="-230" y1="-4000" x2="-230" y2="4000" stroke="var(--ink)" stroke-opacity=".07" vector-effect="non-scaling-stroke"/><line x1="-150" y1="-4000" x2="-150" y2="4000" stroke="var(--ink)" stroke-opacity=".07" vector-effect="non-scaling-stroke"/><line x1="300" y1="-4000" x2="300" y2="4000" stroke="var(--ink)" stroke-opacity=".07" vector-effect="non-scaling-stroke"/><line x1="380" y1="-4000" x2="380" y2="4000" stroke="var(--ink)" stroke-opacity=".07" vector-effect="non-scaling-stroke"/><line x1="480" y1="-4000" x2="480" y2="4000" stroke="var(--ink)" stroke-opacity=".07" vector-effect="non-scaling-stroke"/>
+              <circle cx="-190" cy="120" r="64" fill="none" stroke="var(--signal)" stroke-opacity=".2" vector-effect="non-scaling-stroke"/>
+              <circle cx="340" cy="120" r="64" fill="none" stroke="var(--signal)" stroke-opacity=".2" vector-effect="non-scaling-stroke"/>
+              <line x1="-4000" y1="184" x2="4150" y2="184" stroke="var(--signal)" stroke-opacity=".45" vector-effect="non-scaling-stroke"/>
+            </svg>
+            <svg class="intro__wire" viewBox="0 0 150 210" preserveAspectRatio="xMidYMid meet">
+              <path d="M33 184V100a42 42 0 0 1 84 0v84" fill="none" stroke="var(--ink)" stroke-opacity=".4" stroke-dasharray="3 3" vector-effect="non-scaling-stroke"/>
+              <line x1="-4000" y1="184" x2="4150" y2="184" stroke="var(--ink)" stroke-opacity=".22" stroke-dasharray="3 3" vector-effect="non-scaling-stroke"/>
+            </svg>
+            <svg class="intro__gold" viewBox="0 0 150 210" preserveAspectRatio="xMidYMid meet">
+              <path d="M33 184V100a42 42 0 0 1 84 0v84" fill="var(--stone)" stroke="var(--signal)" stroke-width="1"/>
+              <path d="M45 184V102a30 30 0 0 1 60 0v82" fill="none" stroke="var(--signal)" stroke-opacity=".45" stroke-width=".6"/>
+              <circle cx="75" cy="118" r="16" fill="var(--signal)"/>
+              <text x="75" y="118" text-anchor="middle" dominant-baseline="central" font-family="Cinzel, serif" font-weight="600" font-size="9.5" letter-spacing=".6" fill="var(--sea-900)">KNC</text>
+              <line x1="60" y1="152" x2="90" y2="152" stroke="var(--signal)" stroke-opacity=".55" stroke-width=".5"/>
+              <line x1="65" y1="158" x2="85" y2="158" stroke="var(--signal)" stroke-opacity=".4" stroke-width=".5"/>
+              <line x1="70" y1="166" x2="80" y2="166" stroke="var(--signal)" stroke-opacity=".28" stroke-width=".5"/>
+            </svg>
+          </div>
+          <span class="intro__line intro__line--dash"></span>
+          <span class="intro__line intro__line--solid"></span>
+        </div>
+        <p class="intro__hint" aria-hidden="true">Kaydırın</p>
+      </div>
+    </section>
+
     <!-- HERO -->
     <section class="hero">
 
       <div class="wrap hero__grid">
         <div class="hero__head">
           <p class="eyebrow eyebrow--signal">İki kişilik yazılım stüdyosu · Ankara</p>
-          <h1 class="hero__title" aria-label="İşletmenize özel web çözümleri.">İşletmenize özel <span class="hero__fill" data-text="web çözümleri." aria-hidden="true">web çözümleri.</span></h1>
+          <h1 class="hero__title">İşletmenize özel <span>web çözümleri.</span></h1>
         </div>
         <div class="hero__copy">
           <p class="hero__lead reveal">Birbirine benzeyen hazır siteler yapmıyoruz. Web sitenizi, rezervasyon ya da sipariş sisteminizi, online ödemeyi ve kendi yöneteceğiniz paneli işinize göre sıfırdan kuruyoruz.</p>
@@ -66,10 +110,6 @@
         </div>
 
         <figure class="board" aria-label="Yayındaki işlerimiz ve sıradaki proje">
-          <svg class="board__cross" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-            <line x1="0" y1="0" x2="100" y2="100" vector-effect="non-scaling-stroke"/>
-            <line x1="100" y1="0" x2="0" y2="100" vector-effect="non-scaling-stroke"/>
-          </svg>
           <div class="board__head">
             <span class="board__title">Yayındaki işler</span>
             <span class="board__clock"><span class="board__live" aria-hidden="true"></span>İST <time id="clock">--:--</time></span>

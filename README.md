@@ -24,8 +24,8 @@ Build adımı yok: saf HTML, CSS ve JavaScript. Yumuşak kaydırma ve bölüm gi
 | Metinler, projeler, hizmetler, SSS | `index.html` |
 | Planlayıcıdaki parçalar ve süreler | `assets/app.js` → `ITEMS` ve `GROUPS` |
 | İletişim e-postası | `assets/app.js` → `CONTACT_EMAIL` ve `index.html` iletişim bölümü |
-| Renkler ve yazı tipleri | `assets/styles.css` → `:root` (KNC Studio tasarım sistemi: [Moktaine/knc-studio](https://github.com/Moktaine/knc-studio) `DESIGN.md`) |
-| Animasyonlar (yumuşak kaydırma, bölüm girişleri) | `assets/motion.js`; açılıştaki tel kafes çizim `assets/styles.css` |
+| Renkler ve yazı tipleri | `assets/styles.css` → `:root` (KNC Studio tasarım sistemi, "Mermer" paleti: [Moktaine/knc-studio](https://github.com/Moktaine/knc-studio) `DESIGN.md`, `src/dev/themes.js`) |
+| Animasyonlar (kaydırmayla oynayan açılış sahnesi, yumuşak kaydırma, bölüm girişleri) | `assets/motion.js`; sahnenin bitmiş hali `assets/styles.css` → `.intro` |
 | Ekran görüntüleri | `assets/img/` (Taply görüntüleri yerel demo verisiyle alındı) |
 
 ## Yerelde çalıştırma

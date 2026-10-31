@@ -57,8 +57,13 @@
         makeFlaps(row.dataset.status, statusWidth, "status" + (live ? " status--live" : ""))
       );
       $$(".flaps", row).forEach(f => f.setAttribute("aria-hidden", "true"));
-      spin($$(".flap", row), 1250 + r * 60); // after the board frame has drawn itself
     });
+    // The board sits below the intro now, so it flips once when it first comes into view.
+    const flip = () => rows.forEach((row, r) => spin($$(".flap", row), 200 + r * 60));
+    if ("IntersectionObserver" in window) {
+      const io = new IntersectionObserver(([en]) => { if (en.isIntersecting) { io.disconnect(); flip(); } }, { threshold: .4 });
+      io.observe(board);
+    }
   }
 
   const clock = $("#clock");
@@ -495,7 +500,7 @@
 
   }
 
-  // Hero entrance: the copy under the headline arrives once the wireframe has finished drawing (styles.css).
-  $$(".reveal").forEach((el, i) => { el.style.transitionDelay = `${900 + i * 90}ms`; });
+  // Hero entrance: a short stagger for the copy under the headline.
+  $$(".reveal").forEach((el, i) => { el.style.transitionDelay = `${i * 90}ms`; });
   requestAnimationFrame(() => requestAnimationFrame(() => $$(".reveal").forEach(el => el.classList.add("is-in"))));
 })();
