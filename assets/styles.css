@@ -71,7 +71,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   font: 400 12px/1 var(--f-body); letter-spacing: .28em; text-transform: uppercase;
   color: var(--fg); background: var(--bg);
   border: 1px solid var(--bd); border-radius: 0;
-  text-decoration: none; cursor: pointer;
+  text-decoration: none; cursor: pointer; white-space: nowrap;
   transition: background-color .3s var(--ease), color .3s var(--ease), border-color .3s var(--ease);
 }
 .btn--signal { --bg: var(--sea-900); --fg: var(--signal); --bd: var(--signal); }
@@ -96,11 +96,11 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   width: 11px; height: 18px; border-radius: 0; background: var(--signal);
   background-image: linear-gradient(transparent 46%, var(--sea-800) 46%, var(--sea-800) 54%, transparent 54%);
 }
-.brand__name { font: 400 13px/1 var(--f-body); letter-spacing: .3em; text-transform: uppercase; color: var(--ink); }
-.brand__for { font: 300 italic 15px/1 var(--f-display); color: var(--text-dark-muted); }
+.brand__name { white-space: nowrap; font: 400 13px/1 var(--f-body); letter-spacing: .3em; text-transform: uppercase; color: var(--ink); }
+.brand__for { white-space: nowrap; font: 300 italic 15px/1 var(--f-display); color: var(--text-dark-muted); }
 .nav ul { display: flex; gap: 4px; }
 .nav a {
-  display: block; padding: 8px 12px; border-radius: 0;
+  display: block; padding: 8px 12px; border-radius: 0; white-space: nowrap;
   font: 400 11px/1.4 var(--f-body); letter-spacing: .26em; text-transform: uppercase; text-decoration: none; color: var(--muted);
   transition: color .3s var(--ease);
 }
@@ -133,13 +133,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   color: var(--signal); -webkit-text-stroke: 0;
 }
 
-/* Topbar wireframe: driven by the intro scene in motion.js; base styles are the finished state. */
-.topbar__inner { position: relative; }
-.topbar__wire { position: absolute; inset: 0; display: flex; align-items: center; gap: 24px; pointer-events: none; opacity: 0; }
-.topbar__wire-links { display: flex; gap: 22px; margin-left: auto; }
-.wbox { display: block; width: 64px; height: 11px; border: 1px dashed var(--dash); }
-.wbox--logo { width: 120px; height: 15px; }
-.wbox--cta { width: 132px; height: 40px; }
+/* Topbar hairline: dashed → solid with the intro scene (motion.js); base styles are the finished state. */
 .topbar__rule { position: absolute; left: 0; right: 0; bottom: -1px; pointer-events: none; }
 .topbar__rule--dash { border-top: 1px dashed var(--dash); clip-path: inset(0 0 0 100%); }
 .topbar__rule--solid { border-top: 1px solid var(--line); }
@@ -585,9 +579,9 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   .steps__no { position: absolute; left: 0; top: 0; }
   .steps h3 { margin-top: 8px; }
 }
-@media (max-width: 900px) {
+@media (max-width: 1180px) {
   .nav__toggle {
-    display: inline-flex; min-height: 40px; padding: 8px 14px; border-radius: 0; cursor: pointer;
+    display: inline-flex; align-items: center; min-height: 40px; padding: 8px 14px; border-radius: 0; cursor: pointer;
     border: 1px solid var(--line); background: transparent; color: var(--text-dark); font: 400 11px/1 var(--f-body); letter-spacing: .26em; text-transform: uppercase;
   }
   .nav ul {
@@ -596,9 +590,9 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   }
   .nav.is-open ul { display: flex; }
   .nav a { padding: 16px 4px; font-size: 12px; border-radius: 0; border-bottom: 1px solid var(--line); }
+}
+@media (max-width: 900px) {
   .topbar .btn--sm { display: none; }
-  .topbar__wire-links { display: none; }
-  .wbox--cta { width: 76px; }
   .section__head--split { grid-template-columns: 1fr; }
   .showcase { grid-template-columns: 1fr; }
   .frame--desktop { grid-column: 1; grid-row: auto; }

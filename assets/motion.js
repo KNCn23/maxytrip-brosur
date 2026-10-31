@@ -10,6 +10,8 @@
   const { gsap, ScrollTrigger, Lenis } = window;
   if (!gsap || !ScrollTrigger) return;
   gsap.registerPlugin(ScrollTrigger);
+  // phones resize the viewport as the address bar shows/hides; re-measuring then makes the pinned intro jump
+  ScrollTrigger.config({ ignoreMobileResize: true });
 
   const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
 
@@ -44,16 +46,14 @@
     const intro = document.querySelector(".intro");
     if (!intro) return;
     const q = gsap.utils.selector(document);
-    const real = q(".topbar__inner > .brand, .topbar__inner > .nav, .topbar__inner > .btn");
     const open = "inset(0% 0% 0% 0%)";
     // negative insets keep the italic overhang and descenders of the serif inside the wipe
     gsap.set(q(".intro__fill"), { clipPath: "inset(-20% 100% -30% -5%)" });
     gsap.set(q(".intro__line--solid, .topbar__rule--solid"), { clipPath: "inset(0% 100% 0% 0%)" });
     gsap.set(q(".intro__line--dash, .topbar__rule--dash"), { clipPath: open });
-    gsap.set(q(".intro__cross, .intro__wire, .topbar__wire"), { opacity: 1 });
+    gsap.set(q(".intro__cross, .intro__wire"), { opacity: 1 });
     gsap.set(q(".intro__bg, .intro__decor"), { opacity: 0 });
     gsap.set(q(".intro__gold"), { clipPath: "inset(100% 0% 0% 0%)" });
-    gsap.set(real, { opacity: 0 });
 
     const slow = { ease: "power1.inOut" };
     gsap.timeline({
@@ -66,8 +66,6 @@
       .to(q(".intro__line--dash, .topbar__rule--dash"), { clipPath: "inset(0% 0% 0% 100%)", duration: 16, ...slow }, 12)
       .to(q(".intro__line--solid, .topbar__rule--solid"), { clipPath: open, duration: 16, ...slow }, 12)
       .to(q(".intro__cross"), { opacity: 0, duration: 10, ...slow }, 12)
-      .to(q(".topbar__wire"), { opacity: 0, duration: 8, ...slow }, 13)
-      .to(real, { opacity: 1, duration: 12, ...slow }, 17)
       .to(q(".intro__bg"), { opacity: 1, duration: 14, ...slow }, 16)
       .to(q(".intro__gold"), { clipPath: open, duration: 16, ease: "power2.inOut" }, 18)
       .to(q(".intro__wire"), { opacity: 0, duration: 10, ...slow }, 20)
