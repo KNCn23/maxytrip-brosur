@@ -1,28 +1,38 @@
 /* KNC Studio — studio site
-   Design system after Moktaine/knc-studio DESIGN.md (type, hairlines, square corners), in an
-   emerald & coral palette: bone ground, deep emerald ink, a coral accent; the planner, "Biz",
-   contact and footer flip to emerald for rhythm. Coral comes in two strengths: --signal for
-   text and strokes (AA on its ground), --signal-fill for fills, where it can be as vivid as it likes. */
-:root {
+   Type, hairlines and square corners after Moktaine/knc-studio DESIGN.md. Colour follows one rule
+   (from the reference reels): a blue base, white, and a single accent that catches you off guard.
+   Three themes share every token; the visitor picks one in the header (html[data-theme]).
+   --signal = text and strokes (AA on its ground) · --signal-fill = the accent, for fills
+   --flip-* = the planner, "Biz", contact and footer, which switch to the theme's strong colour. */
+:root, [data-theme="mavi"] {            /* Deep blue · Pure white · Bubblegum pink */
   color-scheme: light;
-  --sea-900: #f3f0e8;
-  --sea-800: #f3f0e8;
-  --sea-700: #e4e8dd;
-  --sea-600: rgb(15 46 36 / .62);
-  --foam: #f3f0e8;
-  --paper: #e4e8dd;
-  --ink: #0f2e24;
-  --muted: rgb(15 46 36 / .72);
-  --line: rgb(15 46 36 / .13);
-  --line-dark: rgb(15 46 36 / .13);
-  --dash: rgb(15 46 36 / .32);
-  --text-dark: #0f2e24;
-  --text-dark-muted: rgb(15 46 36 / .64);
-  --signal: #b8462a;
-  --signal-fill: #e0623e;
-  --signal-ink: #0f2e24;
-  --gold-45: rgb(224 98 62 / .5);
-  --lagoon: #b8462a;
+  --sea-900: #ffffff; --sea-800: #ffffff; --sea-700: #eef2fb; --foam: #ffffff; --paper: #eef2fb;
+  --ink: #0e1b4d; --ink-rgb: 14 27 77;
+  --signal: #1d4aa6; --signal-fill: #f3b4d8; --signal-ink: #0e1b4d;
+  --flip-bg: #1a3fa0; --flip-paper: #2149ad; --flip-ink: #ffffff; --flip-ink-rgb: 255 255 255; --flip-signal: #f3b4d8;
+}
+[data-theme="gok"] {                    /* Sky blue · White · Hot pink */
+  color-scheme: light;
+  --sea-900: #ffffff; --sea-800: #ffffff; --sea-700: #eaf4fa; --foam: #ffffff; --paper: #eaf4fa;
+  --ink: #0d2a3a; --ink-rgb: 13 42 58;
+  --signal: #1a6e98; --signal-fill: #d667ac; --signal-ink: #0d2a3a;
+  --flip-bg: #4fa8d0; --flip-paper: #63b4d8; --flip-ink: #0d2a3a; --flip-ink-rgb: 13 42 58; --flip-signal: #0d2a3a;
+}
+[data-theme="gece"] {                   /* Midnight black · Electric blue · Cantaloupe orange */
+  color-scheme: dark;
+  --sea-900: #05070b; --sea-800: #05070b; --sea-700: #0e131c; --foam: #05070b; --paper: #0e131c;
+  --ink: #eef2f8; --ink-rgb: 238 242 248;
+  --signal: #58aee1; --signal-fill: #f39676; --signal-ink: #05070b;
+  --flip-bg: #0b1a2e; --flip-paper: #12243d; --flip-ink: #eef2f8; --flip-ink-rgb: 238 242 248; --flip-signal: #58aee1;
+}
+:root, [data-theme] {
+  --sea-600: rgb(var(--ink-rgb) / .62);
+  --muted: rgb(var(--ink-rgb) / .72);
+  --line: rgb(var(--ink-rgb) / .12); --line-dark: var(--line);
+  --dash: rgb(var(--ink-rgb) / .3);
+  --text-dark: var(--ink); --text-dark-muted: rgb(var(--ink-rgb) / .64);
+  --gold-45: color-mix(in srgb, var(--signal) 45%, transparent);
+  --lagoon: var(--signal);
 
   --f-display: "Cormorant Garamond", "Times New Roman", serif;
   --f-body: "Inter", system-ui, sans-serif;
@@ -75,8 +85,8 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   text-decoration: none; cursor: pointer; white-space: nowrap;
   transition: background-color .3s var(--ease), color .3s var(--ease), border-color .3s var(--ease);
 }
-.btn--signal { --bg: var(--sea-900); --fg: var(--signal); --bd: var(--signal); }
-.btn--signal:hover { --bg: var(--signal-fill); --fg: var(--signal-ink); --bd: var(--signal-fill); }
+.btn--signal { --bg: var(--signal-fill); --fg: var(--signal-ink); --bd: var(--signal-fill); }
+.btn--signal:hover { --bg: var(--sea-900); --fg: var(--signal); --bd: var(--signal); }
 .btn--ghost { --fg: var(--muted); --bd: var(--dash); border-style: dashed; }
 .btn--ghost:hover { --fg: var(--signal); --bd: var(--signal); }
 .btn--line { --fg: var(--muted); --bd: var(--dash); border-style: dashed; }
@@ -192,14 +202,16 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 }
 .ticker b { color: var(--ink); font-weight: 400; }
 
-/* Emerald sections: flip the tokens, every component inside follows */
+/* Strong sections: the same tokens, flipped to the theme's strong colour */
 .section--dark, .section--sea, .cta, .footer {
-  --sea-900: #0f2e24; --sea-800: #0f2e24; --paper: #163a2e;
-  --ink: #f3f0e8; --text-dark: #f3f0e8;
-  --muted: rgb(243 240 232 / .74); --text-dark-muted: rgb(243 240 232 / .64);
-  --line: rgb(243 240 232 / .14); --line-dark: rgb(243 240 232 / .14); --dash: rgb(243 240 232 / .34);
-  --signal: #f08463; --lagoon: #f08463; --gold-45: rgb(240 132 99 / .5);
-  background: #0f2e24; color: var(--ink);
+  --sea-900: var(--flip-bg); --sea-800: var(--flip-bg); --paper: var(--flip-paper);
+  --ink: var(--flip-ink); --ink-rgb: var(--flip-ink-rgb);
+  --sea-600: rgb(var(--flip-ink-rgb) / .66); --muted: rgb(var(--flip-ink-rgb) / .78);
+  --line: rgb(var(--flip-ink-rgb) / .18); --line-dark: var(--line); --dash: rgb(var(--flip-ink-rgb) / .38);
+  --text-dark: var(--flip-ink); --text-dark-muted: rgb(var(--flip-ink-rgb) / .68);
+  --signal: var(--flip-signal); --lagoon: var(--flip-signal);
+  --gold-45: color-mix(in srgb, var(--flip-signal) 50%, transparent);
+  background: var(--flip-bg); color: var(--ink);
 }
 
 /* Sections */
@@ -287,7 +299,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .ledger__group li + li { border-top: 1px solid var(--line); }
 .ledger__group li::before {
   content: ""; position: absolute; left: 0; top: 15px; width: 18px; height: 18px; border-radius: 0;
-  background: var(--lagoon) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath d='M5 9.3l2.6 2.6L13 6.5' fill='none' stroke='%230f2e24' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 18px no-repeat;
+  background: var(--signal-fill) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath d='M5 9.3l2.6 2.6L13 6.5' fill='none' stroke='%230b1220' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 18px no-repeat;
 }
 .ledger__group strong { display: block; color: var(--ink); font-size: 15px; font-weight: 400; margin-bottom: 2px; }
 
@@ -323,7 +335,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   transition: background-color .15s, border-color .15s;
 }
 .route__check:checked {
-  background: var(--signal-fill) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6.5 12.4l3.6 3.6 7.4-7.6' fill='none' stroke='%230f2e24' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 22px no-repeat;
+  background: var(--signal-fill) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6.5 12.4l3.6 3.6 7.4-7.6' fill='none' stroke='%230b1220' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 22px no-repeat;
   border: 1px solid var(--signal-fill);
 }
 .route__title { font: 300 24px/1.25 var(--f-display); color: var(--ink); }
@@ -549,6 +561,9 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   .steps h3 { margin-top: 8px; }
 }
 @media (max-width: 1180px) {
+  .themes { order: 1; }
+  .nav { order: 2; }
+  .topbar .btn--sm { order: 3; }
   .nav__toggle {
     display: inline-flex; align-items: center; min-height: 40px; padding: 8px 14px; border-radius: 0; cursor: pointer;
     border: 1px solid var(--line); background: transparent; color: var(--text-dark); font: 400 11px/1 var(--f-body); letter-spacing: .26em; text-transform: uppercase;
@@ -646,7 +661,7 @@ textarea, input { caret-color: var(--signal); }
 /* ---------- Board rows lead to their project ---------- */
 .board__rows li { position: relative; transition: background-color .3s var(--ease); }
 .board__link { position: absolute; inset: 0; z-index: 1; }
-.board__rows li:hover, .board__rows li:focus-within { background: rgb(224 98 62 / .08); }
+.board__rows li:hover, .board__rows li:focus-within { background: color-mix(in srgb, var(--signal-fill) 14%, transparent); }
 .board__rows li:hover .name .flap, .board__rows li:focus-within .name .flap { color: var(--signal); }
 
 /* ---------- Screenshot pins and their legend light each other up ---------- */
@@ -674,3 +689,14 @@ textarea, input { caret-color: var(--signal); }
 }
 .works:not(.is-ring) .works__counter, .works:not(.is-ring) .works__hint { display: none; }
 .works:not(.is-ring) .works__ring { padding-bottom: clamp(48px, 7vw, 88px); }
+
+/* ---------- Theme picker (header): three swatches, the reels' palettes ---------- */
+.themes { display: flex; gap: 6px; }
+.themes button {
+  width: 22px; height: 22px; padding: 0; cursor: pointer; border: 1px solid var(--line);
+  background: var(--a); box-shadow: inset -11px 0 0 var(--b);
+  transition: outline-color .2s var(--ease);
+  outline: 1px solid transparent; outline-offset: 2px;
+}
+.themes button[aria-checked="true"] { outline-color: var(--ink); }
+.themes button:hover { outline-color: var(--dash); }

@@ -492,6 +492,25 @@
     });
   });
 
+  /* ---------- Theme picker: the three palettes from the reference reels ---------- */
+  const themeBtns = $$(".themes [data-theme]");
+  const setTheme = t => {
+    document.documentElement.dataset.theme = t;
+    themeBtns.forEach(b => { const on = b.dataset.theme === t; b.setAttribute("aria-checked", String(on)); b.tabIndex = on ? 0 : -1; });
+    $('meta[name="theme-color"]')?.setAttribute("content", getComputedStyle(document.documentElement).getPropertyValue("--sea-900").trim());
+    try { localStorage.setItem("knc-theme", t); } catch {}
+  };
+  themeBtns.forEach(b => b.addEventListener("click", () => setTheme(b.dataset.theme)));
+  // arrow keys move between swatches, as a radiogroup should
+  $(".themes")?.addEventListener("keydown", e => {
+    const i = themeBtns.indexOf(document.activeElement), step = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key];
+    if (i < 0 || !step) return;
+    e.preventDefault();
+    const next = themeBtns[(i + step + themeBtns.length) % themeBtns.length];
+    next.focus(); setTheme(next.dataset.theme);
+  });
+  setTheme(document.documentElement.dataset.theme || "mavi");
+
   /* ---------- Screenshot pins ↔ legend ---------- */
   $$(".showcase").forEach(sc => {
     const pins = $$(".pin", sc), items = $$(".legend li", sc);

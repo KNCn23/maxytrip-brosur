@@ -25,7 +25,7 @@ Build adımı yok: saf HTML, CSS ve JavaScript. Yumuşak kaydırma ve bölüm gi
 | Metinler, projeler, hizmetler, SSS | `index.html` |
 | Planlayıcıdaki parçalar ve süreler | `assets/app.js` → `ITEMS` ve `GROUPS` |
 | İletişim e-postası | `assets/app.js` → `CONTACT_EMAIL` ve `index.html` iletişim bölümü |
-| Renkler ve yazı tipleri | `assets/styles.css` → `:root` (Zümrüt & Mercan paleti; yazı ve çizgi dili [Moktaine/knc-studio](https://github.com/Moktaine/knc-studio) `DESIGN.md`) |
+| Renkler ve yazı tipleri | `assets/styles.css` → `:root` ve `[data-theme]`: üç tema (Koyu mavi · pembe, Gök mavisi · fuşya, Gece · turuncu); ziyaretçi üst menüden seçer, seçim tarayıcıda saklanır. Yazı ve çizgi dili [Moktaine/knc-studio](https://github.com/Moktaine/knc-studio) `DESIGN.md` |
 | Animasyonlar (3B proje halkası, yumuşak kaydırma, bölüm girişleri) | `assets/motion.js` |
 | Ekran görüntüleri | `assets/img/` (Taply görüntüleri yerel demo verisiyle alındı) |
 

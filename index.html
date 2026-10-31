@@ -5,19 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>KNC Studio — İşinize özel web sitesi ve yönetim paneli</title>
   <meta name="description" content="KNC Studio iki kişilik bir yazılım stüdyosu. İşletmenize özel web sitesi, rezervasyon ve sipariş sistemi, online ödeme ve kendi yöneteceğiniz paneli sıfırdan kuruyoruz.">
-  <meta name="theme-color" content="#f3f0e8">
+  <meta name="theme-color" content="#ffffff">
   <meta property="og:type" content="website">
   <meta property="og:title" content="KNC Studio — İşinize özel web sitesi ve yönetim paneli">
   <meta property="og:description" content="İşletmenize özel web sitesi ve yönetim paneli. maxytrip.com ve Taply'yi biz geliştirdik. Projenizi planlayın, tahmini süreyi görün.">
   <meta property="og:image" content="https://kncn23.github.io/maxytrip-brosur/assets/img/maxytrip-desktop.jpg">
   <meta property="og:locale" content="tr_TR">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230f2e24'/%3E%3Ccircle cx='16' cy='16' r='10' fill='%23e0623e'/%3E%3Ctext x='16' y='19.5' font-family='serif' font-size='9' text-anchor='middle' fill='%230f2e24'%3EKNC%3C/text%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231a3fa0'/%3E%3Ccircle cx='16' cy='16' r='10' fill='%23f3b4d8'/%3E%3Ctext x='16' y='19.5' font-family='serif' font-size='9' text-anchor='middle' fill='%230e1b4d'%3EKNC%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lenis@1.3.27/dist/lenis.css">
-  <link rel="stylesheet" href="assets/styles.css?v=2026-10-31d">
-  <script>document.documentElement.classList.add("js")</script>
+  <link rel="stylesheet" href="assets/styles.css?v=2026-11-01a">
+  <script>document.documentElement.classList.add("js");try{var t=localStorage.getItem("knc-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 </head>
 <body>
   <a class="skip" href="#icerik">İçeriğe geç</a>
@@ -39,6 +39,11 @@
           <li><a href="#sss">SSS</a></li>
         </ul>
       </nav>
+      <div class="themes" role="radiogroup" aria-label="Renk teması">
+        <button type="button" role="radio" data-theme="mavi" aria-checked="true" aria-label="Koyu mavi, beyaz ve pembe" title="Koyu mavi · pembe" style="--a:#1d4aa6;--b:#f3b4d8"></button>
+        <button type="button" role="radio" data-theme="gok" aria-checked="false" aria-label="Gök mavisi, beyaz ve fuşya" title="Gök mavisi · fuşya" style="--a:#4fa8d0;--b:#d667ac"></button>
+        <button type="button" role="radio" data-theme="gece" aria-checked="false" aria-label="Gece siyahı, elektrik mavisi ve kavun turuncusu" title="Gece · turuncu" style="--a:#05070b;--b:#f39676"></button>
+      </div>
       <a class="btn btn--signal btn--sm" href="#iletisim">Bize yazın</a>
     </div>
   </header>
@@ -629,10 +634,10 @@
     <a class="btn btn--signal btn--sm" href="#ozet" tabindex="-1">Özeti gör</a>
   </div>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <script src="assets/app.js?v=2026-10-31d" defer></script>
+  <script src="assets/app.js?v=2026-11-01a" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.27/dist/lenis.min.js" defer></script>
-  <script src="assets/motion.js?v=2026-10-31d" defer></script>
+  <script src="assets/motion.js?v=2026-11-01a" defer></script>
 </body>
 </html>
