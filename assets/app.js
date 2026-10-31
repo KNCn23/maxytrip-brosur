@@ -57,72 +57,8 @@
         makeFlaps(row.dataset.status, statusWidth, "status" + (live ? " status--live" : ""))
       );
       $$(".flaps", row).forEach(f => f.setAttribute("aria-hidden", "true"));
-      spin($$(".flap", row), 1000 + r * 60); // after the board frame has drawn itself
+      spin($$(".flap", row), 1250 + r * 60); // after the board frame has drawn itself
     });
-  }
-
-  /* ---------- Hero light ribbons (after kncn23.github.io, in KNC gold) ---------- */
-  // A bundle of thin strands sweeping lower-left to upper-right, pinched into a knot right of centre.
-  // They draw themselves in from the left once, then only breathe; paused off-screen and in hidden tabs.
-  const cv = $(".hero__ribbons");
-  const ctx = cv && cv.getContext && cv.getContext("2d");
-  if (ctx) {
-    const small = matchMedia("(max-width: 900px)").matches;
-    const N = small ? 18 : 30, STEPS = small ? 44 : 64, INTRO = 1.6;
-    let seed = 7; // seeded: the still frame is the same on every visit
-    const rand = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
-    const strands = Array.from({ length: N }, (_, i) => ({
-      k: i / (N - 1), phase: rand() * 6.28, freq: 2.2 + rand() * 2.4, amp: .015 + rand() * .04, speed: .08 + rand() * .14, tone: rand(),
-    }));
-    let w = 0, h = 0;
-    const size = () => {
-      const dpr = Math.min(devicePixelRatio || 1, 1.5);
-      w = cv.clientWidth; h = cv.clientHeight;
-      cv.width = Math.round(w * dpr); cv.height = Math.round(h * dpr);
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    };
-    const kx = small ? .62 : .6, ky = small ? .66 : .52;
-    const dim = small ? .5 : 1; // on phones the strands cross the copy, so they stay fainter
-    const draw = (t, grown) => {
-      ctx.clearRect(0, 0, w, h);
-      ctx.globalCompositeOperation = "lighter";
-      const end = -0.08 + grown * 1.16;
-      for (const st of strands) {
-        const side = st.k - .5, core = 1 - Math.abs(side) * 2;
-        ctx.beginPath();
-        for (let j = 0; j <= STEPS; j++) {
-          const u = -0.08 + (j / STEPS) * 1.16;
-          if (u > end) break;
-          const d = Math.abs(u - kx);
-          const y = ky + (kx - u) * .55 + Math.sin((u - kx) * 2.4) * .06
-            + side * (.03 + Math.pow(d, 1.35) * 1.1)
-            + Math.sin(u * st.freq * Math.PI + t * st.speed + st.phase) * st.amp * (.25 + d * 2.2);
-          j ? ctx.lineTo(u * w, y * h) : ctx.moveTo(u * w, y * h);
-        }
-        // gold at the core, cream at the edges, never strong enough to fight the text
-        ctx.strokeStyle = `rgba(${201 + 38 * st.tone * (1 - core)},${171 + 62 * st.tone * (1 - core)},${112 + 108 * st.tone * (1 - core)},${(.06 + core * .26) * dim})`;
-        ctx.lineWidth = .7 + core * .8;
-        ctx.stroke();
-      }
-    };
-    size();
-    if (reduceMotion) draw(0, 1);
-    else {
-      let start = 0, visible = true, raf = 0;
-      const ease = x => 1 - Math.pow(1 - Math.min(x, 1), 3);
-      const frame = now => {
-        start ||= now;
-        const t = (now - start) / 1000;
-        draw(t, ease(t / INTRO));
-        raf = visible && !document.hidden ? requestAnimationFrame(frame) : 0;
-      };
-      const wake = () => { if (!raf && visible && !document.hidden) raf = requestAnimationFrame(frame); };
-      new IntersectionObserver(([en]) => { visible = en.isIntersecting; wake(); }).observe(cv);
-      document.addEventListener("visibilitychange", wake);
-      wake();
-    }
-    let resizeTimer;
-    addEventListener("resize", () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(() => { size(); if (reduceMotion) draw(0, 1); }, 150); });
   }
 
   const clock = $("#clock");
@@ -561,7 +497,7 @@
     if (map) new IntersectionObserver(([en]) => map.classList.toggle("is-visible", en.isIntersecting)).observe(map);
   }
 
-  // Hero entrance: every .reveal sits above the fold, so stagger them in on the first frame.
-  $$(".reveal").forEach((el, i) => { el.style.transitionDelay = `${i * 90}ms`; });
+  // Hero entrance: the copy under the headline arrives once the wireframe has finished drawing (styles.css).
+  $$(".reveal").forEach((el, i) => { el.style.transitionDelay = `${900 + i * 90}ms`; });
   requestAnimationFrame(() => requestAnimationFrame(() => $$(".reveal").forEach(el => el.classList.add("is-in"))));
 })();

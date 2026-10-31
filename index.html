@@ -24,6 +24,11 @@
 
   <header class="topbar" id="top">
     <div class="wrap topbar__inner">
+      <div class="topbar__wire" aria-hidden="true">
+        <span class="wbox wbox--logo"></span>
+        <span class="topbar__wire-links"><span class="wbox"></span><span class="wbox"></span><span class="wbox"></span><span class="wbox"></span><span class="wbox"></span></span>
+        <span class="wbox wbox--cta"></span>
+      </div>
       <a class="brand" href="#top" aria-label="KNC Studio — sayfa başı">
         <span class="brand__mark" aria-hidden="true"><i></i><i></i></span>
         <span class="brand__name">KNC Studio</span>
@@ -46,12 +51,11 @@
   <main id="icerik">
     <!-- HERO -->
     <section class="hero">
-      <canvas class="hero__ribbons" aria-hidden="true"></canvas>
 
       <div class="wrap hero__grid">
         <div class="hero__copy">
           <p class="eyebrow eyebrow--signal reveal">İki kişilik yazılım stüdyosu · Ankara</p>
-          <h1 class="hero__title reveal" aria-label="İşletmenize özel web çözümleri.">İşletmenize özel<br><span class="hero__fill" data-text="web çözümleri." aria-hidden="true">web çözümleri.</span></h1>
+          <h1 class="hero__title" aria-label="İşletmenize özel web çözümleri.">İşletmenize özel<br><span class="hero__fill" data-text="web çözümleri." aria-hidden="true">web çözümleri.</span></h1>
           <p class="hero__lead reveal">Birbirine benzeyen hazır siteler yapmıyoruz; her projeye işletmenizi tanıyarak başlıyoruz. İhtiyacınıza göre web sitesini, rezervasyon ya da sipariş sistemini, online ödemeyi ve kendi yöneteceğiniz paneli birlikte planlayıp geliştiriyoruz. Tur acentesi <strong>MaxyTrip</strong>'in rezervasyon sitesi ve NFC dijital menü platformu <strong>Taply</strong>, geliştirdiğimiz projelerden ikisi.</p>
           <div class="hero__actions reveal">
             <a class="btn btn--signal" href="#planla">Projenizi planlayın</a>
@@ -60,6 +64,10 @@
         </div>
 
         <figure class="board" aria-label="Yayındaki işlerimiz ve sıradaki proje">
+          <svg class="board__cross" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+            <line x1="0" y1="0" x2="100" y2="100" vector-effect="non-scaling-stroke"/>
+            <line x1="100" y1="0" x2="0" y2="100" vector-effect="non-scaling-stroke"/>
+          </svg>
           <div class="board__head">
             <span class="board__title">Yayındaki işler</span>
             <span class="board__clock"><span class="board__live" aria-hidden="true"></span>İST <time id="clock">--:--</time></span>
