@@ -17,7 +17,7 @@
 
 ## Düzenleme
 
-Build adımı yok: saf HTML, CSS ve JavaScript. Animasyonlar için GSAP (ScrollTrigger, SplitText) ve Lenis CDN üzerinden yüklenir; yüklenemezlerse site animasyonsuz çalışmaya devam eder.
+Build adımı yok: saf HTML, CSS ve JavaScript. Yumuşak kaydırma ve bölüm girişleri için GSAP (ScrollTrigger) ve Lenis CDN üzerinden yüklenir; yüklenemezlerse site animasyonsuz çalışmaya devam eder.
 
 | Ne | Nerede |
 | --- | --- |
@@ -25,7 +25,7 @@ Build adımı yok: saf HTML, CSS ve JavaScript. Animasyonlar için GSAP (ScrollT
 | Planlayıcıdaki parçalar ve süreler | `assets/app.js` → `ITEMS` ve `GROUPS` |
 | İletişim e-postası | `assets/app.js` → `CONTACT_EMAIL` ve `index.html` iletişim bölümü |
 | Renkler ve yazı tipleri | `assets/styles.css` → `:root` (KNC Studio tasarım sistemi: [Moktaine/knc-studio](https://github.com/Moktaine/knc-studio) `DESIGN.md`) |
-| Animasyonlar (yumuşak kaydırma, başlık ve kart girişleri, sayaçlar) | `assets/motion.js` |
+| Animasyonlar (yumuşak kaydırma, bölüm girişleri) | `assets/motion.js`; açılıştaki tel kafes çizim `assets/styles.css` |
 | Ekran görüntüleri | `assets/img/` (Taply görüntüleri yerel demo verisiyle alındı) |
 
 ## Yerelde çalıştırma

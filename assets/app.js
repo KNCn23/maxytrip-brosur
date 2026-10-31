@@ -493,8 +493,6 @@
     }, { rootMargin: "-45% 0px -50% 0px" });
     links.forEach((_, id) => { const s = document.getElementById(id); if (s) spy.observe(s); });
 
-    const map = $(".route-map");
-    if (map) new IntersectionObserver(([en]) => map.classList.toggle("is-visible", en.isIntersecting)).observe(map);
   }
 
   // Hero entrance: the copy under the headline arrives once the wireframe has finished drawing (styles.css).

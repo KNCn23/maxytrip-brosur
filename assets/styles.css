@@ -114,12 +114,14 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .hero__grid {
   position: relative;
   display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 560px);
-  gap: clamp(32px, 5vw, 72px); align-items: center;
+  gap: clamp(36px, 5vw, 64px) clamp(32px, 5vw, 72px); align-items: start;
   padding-block: clamp(56px, 9vw, 112px) clamp(48px, 7vw, 88px);
 }
+.hero__head { grid-column: 1 / -1; }
+.hero__copy { padding-top: 6px; }
 .hero__title {
-  margin-top: 18px;
-  font: 300 clamp(44px, 6.4vw, 96px)/1.02 var(--f-body);
+  margin-top: 18px; max-width: 14em;
+  font: 300 clamp(44px, 7.2vw, 112px)/1.02 var(--f-body);
   letter-spacing: -.035em; color: var(--sea-900); -webkit-text-stroke: 2px var(--ink); paint-order: stroke fill;
 }
 .hero__title span {
@@ -329,17 +331,16 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .routes__group-label:hover { color: var(--signal); }
 .routes__group-label > span:first-child { flex: 1; }
 .routes__group-count { color: var(--signal); letter-spacing: .06em; }
-.routes__group-body { display: grid; gap: 12px; padding-bottom: 20px; }
+.routes__group-body { display: grid; padding-bottom: 12px; }
 .route {
   position: relative;
   display: grid; grid-template-columns: 28px minmax(0, 1fr) auto; gap: 6px 18px; align-items: start;
-  padding: 20px 22px; border-radius: 0;
-  background: transparent; border: 1px dashed var(--line);
-  transition: border-color .2s, background-color .2s;
+  padding: 18px 0; border-radius: 0;
+  background: transparent; border: 0; border-top: 1px solid var(--line);
   cursor: pointer;
 }
-.route:hover { border-color: var(--dash); }
-.route.is-on { border-style: solid; border-color: var(--gold-45); }
+.route .route__title { transition: color .3s var(--ease); }
+.route:hover .route__title, .route.is-on .route__title { color: var(--signal); }
 .route__check {
   appearance: none; -webkit-appearance: none; margin: 2px 0 0;
   width: 20px; height: 20px; border-radius: 0; border: 1px dashed var(--dash);
@@ -416,8 +417,6 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .route-map { background: var(--sea-900); border-radius: 0; padding: 12px; border: 1px solid var(--line-dark); }
 .route-map svg { width: 100%; height: auto; display: block; }
 .route-map__line { fill: none; stroke: var(--signal); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 6 7; }
-.route-map.is-visible .route-map__line { animation: dash 1.2s linear infinite; }
-@keyframes dash { to { stroke-dashoffset: -26; } }
 .route-map__stops circle { fill: var(--sea-900); stroke: var(--lagoon); stroke-width: 2.5; }
 .route-map__depot { fill: var(--text-dark-muted); }
 .route-map__pier { fill: var(--signal); }
@@ -608,7 +607,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   .board__rows li { grid-template-columns: 1fr auto; }
   .ticker__inner { justify-content: flex-start; gap: 10px 22px; font-size: 12px; }
   .pin { width: 22px; height: 22px; font-size: 11px; }
-  .route { grid-template-columns: 26px minmax(0, 1fr); padding: 18px 16px; gap: 6px 14px; }
+  .route { grid-template-columns: 26px minmax(0, 1fr); padding: 16px 0; gap: 6px 14px; }
   .route__meta { grid-column: 2; text-align: left; }
   .route__meta small { display: inline; margin-left: 8px; }
   .route__opts { grid-column: 1 / -1; }
@@ -624,18 +623,6 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .js .reveal { opacity: 1; transform: none; }
 }
-
-/* Motion layer (assets/motion.js) */
-.marquee {
-  margin-top: 32px; overflow: hidden;
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-          mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-}
-.marquee__track { display: flex; gap: 8px; width: max-content; will-change: transform; }
-.marquee .stack { flex: none; flex-wrap: nowrap; margin-top: 0; }
-.marquee .stack li { white-space: nowrap; }
-
-.spark-layer { position: fixed; inset: 0; width: 100vw; height: 100vh; z-index: 70; pointer-events: none; }
 
 ::selection { background: var(--signal); color: var(--signal-ink); }
 textarea, input { caret-color: var(--signal); }
