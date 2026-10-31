@@ -24,7 +24,7 @@ Build adımı yok: saf HTML, CSS ve JavaScript. Animasyonlar için GSAP (ScrollT
 | Metinler, projeler, hizmetler, SSS | `index.html` |
 | Planlayıcıdaki parçalar ve süreler | `assets/app.js` → `ITEMS` ve `GROUPS` |
 | İletişim e-postası | `assets/app.js` → `CONTACT_EMAIL` ve `index.html` iletişim bölümü |
-| Renkler ve yazı tipleri | `assets/styles.css` → `:root` |
+| Renkler ve yazı tipleri | `assets/styles.css` → `:root` (KNC Studio tasarım sistemi: [Moktaine/knc-studio](https://github.com/Moktaine/knc-studio) `DESIGN.md`) |
 | Animasyonlar (yumuşak kaydırma, başlık ve kart girişleri, sayaçlar) | `assets/motion.js` |
 | Ekran görüntüleri | `assets/img/` (Taply görüntüleri yerel demo verisiyle alındı) |
 

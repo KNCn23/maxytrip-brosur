@@ -1,6 +1,6 @@
 /*
  * Motion layer: Lenis smooth scroll + GSAP (ScrollTrigger, SplitText).
- * SplitText / BlurText / ScrollReveal / CountUp / Magnet / ClickSpark / SpotlightCard / ScrollVelocity
+ * SplitText / BlurText / ScrollReveal / CountUp / Magnet / ClickSpark / ScrollVelocity
  * are vanilla adaptations of React Bits effects (reactbits.dev, MIT + Commons Clause, © David Haz).
  * The page works without this file; if the CDN scripts fail to load it simply does nothing.
  */
@@ -13,7 +13,7 @@
 
   const $ = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
-  const SIGNAL = "#F6B92B";
+  const SIGNAL = "#C9AB70";
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
@@ -264,14 +264,4 @@
       }
     });
   }, { passive: true });
-
-  /* ---------- React Bits SpotlightCard: pointer-following light on service cards ---------- */
-  $$(".skill").forEach(card => {
-    card.classList.add("has-spotlight");
-    card.addEventListener("pointermove", e => {
-      const r = card.getBoundingClientRect();
-      card.style.setProperty("--mx", `${e.clientX - r.left}px`);
-      card.style.setProperty("--my", `${e.clientY - r.top}px`);
-    });
-  });
 })();
