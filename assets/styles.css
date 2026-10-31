@@ -111,7 +111,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   background: var(--sea-900);
   color: var(--text-dark);
 }
-.hero__contours { position: absolute; inset: 0; width: 100%; height: 100%; color: rgb(201 171 112 / .1); pointer-events: none; }
+.hero__ribbons { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
 
 .hero__grid {
   position: relative;
@@ -128,6 +128,23 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   font: 400 italic 1.1em/1.02 var(--f-display); letter-spacing: -.01em;
   color: var(--signal); -webkit-text-stroke: 0;
 }
+
+/* Opening (≈2s, once): the gold phrase starts as a ghost outline and fills left → right,
+   while the board's dashed frame is wiped away by a solid gold one. Base styles are the
+   finished state, so reduced motion and no-animation browsers simply show the result. */
+.hero__fill { position: relative; display: inline-block; padding-right: .12em; animation: clear-text 1.5s linear; }
+.hero__fill::before, .hero__fill::after { content: attr(data-text); position: absolute; left: 0; top: 0; }
+.hero__fill::before { color: transparent; -webkit-text-stroke: 1px var(--gold-45); clip-path: inset(0 0 0 100%); animation: wipe-out .9s var(--ease) .5s both; }
+.hero__fill::after { color: var(--signal); animation: wipe-in 1s var(--ease) .5s both; }
+.board { position: relative; }
+.board::before, .board::after { content: ""; position: absolute; inset: -1px; pointer-events: none; }
+.board::before { border: 1px dashed var(--dash); clip-path: inset(0 0 0 100%); animation: wipe-out .8s var(--ease) .45s both; }
+.board::after { border: 1px solid var(--gold-45); animation: wipe-in .8s var(--ease) .45s both; }
+.board > * { animation: rise .6s var(--ease) .95s both; }
+@keyframes wipe-in { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 -20% 0 0); } }
+@keyframes wipe-out { from { clip-path: inset(0 0 0 0); } to { clip-path: inset(0 0 0 100%); } }
+@keyframes rise { from { opacity: 0; transform: translateY(6px); } }
+@keyframes clear-text { from, to { color: transparent; } }
 .hero__lead { margin-top: 26px; max-width: 34em; font-size: 17px; line-height: 1.75; color: var(--muted); }
 .hero__lead strong { color: var(--ink); font-weight: 400; }
 .hero__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
@@ -137,7 +154,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   --cell: clamp(11px, .96vw, 14px);
   margin: 0;
   background: var(--sea-900);
-  border: 1px solid var(--gold-45);
+  border: 1px solid transparent; /* drawn by ::before / ::after */
   border-radius: 0;
   padding: 18px 18px 14px;
 }

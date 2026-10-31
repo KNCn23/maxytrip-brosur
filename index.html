@@ -46,28 +46,12 @@
   <main id="icerik">
     <!-- HERO -->
     <section class="hero">
-      <svg class="hero__contours" viewBox="0 0 1440 820" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-        <g fill="none" stroke="currentColor" stroke-width="1">
-          <path d="M-40 640 C 180 560 320 700 520 620 S 860 470 1040 560 S 1340 640 1500 540"/>
-          <path d="M-40 600 C 170 520 330 660 520 580 S 850 430 1040 520 S 1330 600 1500 500"/>
-          <path d="M-40 560 C 160 480 340 620 520 540 S 840 390 1040 480 S 1320 560 1500 460"/>
-          <path d="M-40 512 C 150 440 350 570 520 496 S 830 350 1040 436 S 1310 516 1500 420"/>
-          <path d="M-40 460 C 140 400 360 520 520 450 S 820 310 1040 390 S 1300 470 1500 380"/>
-          <path d="M-40 404 C 130 356 370 466 520 400 S 810 268 1040 342 S 1290 420 1500 336"/>
-          <path d="M-40 344 C 120 310 380 410 520 348 S 800 226 1040 292 S 1280 366 1500 290"/>
-          <path d="M-40 280 C 110 262 390 350 520 294 S 790 182 1040 240 S 1270 310 1500 242"/>
-          <path d="M-40 212 C 100 212 400 288 520 238 S 780 138 1040 186 S 1260 252 1500 192"/>
-          <path d="M1060 760 C 1120 700 1240 712 1270 760 S 1180 830 1100 810 Z"/>
-          <path d="M1030 770 C 1100 670 1270 680 1310 760 S 1190 860 1080 830 Z"/>
-          <path d="M180 120 C 230 80 330 96 336 140 S 260 196 200 176 S 150 140 180 120 Z"/>
-          <path d="M150 128 C 210 52 360 72 370 142 S 270 228 186 204 S 112 162 150 128 Z"/>
-        </g>
-      </svg>
+      <canvas class="hero__ribbons" aria-hidden="true"></canvas>
 
       <div class="wrap hero__grid">
         <div class="hero__copy">
           <p class="eyebrow eyebrow--signal reveal">İki kişilik yazılım stüdyosu · Ankara</p>
-          <h1 class="hero__title reveal">İşletmenize özel<br><span>web çözümleri.</span></h1>
+          <h1 class="hero__title reveal" aria-label="İşletmenize özel web çözümleri.">İşletmenize özel<br><span class="hero__fill" data-text="web çözümleri." aria-hidden="true">web çözümleri.</span></h1>
           <p class="hero__lead reveal">Birbirine benzeyen hazır siteler yapmıyoruz; her projeye işletmenizi tanıyarak başlıyoruz. İhtiyacınıza göre web sitesini, rezervasyon ya da sipariş sistemini, online ödemeyi ve kendi yöneteceğiniz paneli birlikte planlayıp geliştiriyoruz. Tur acentesi <strong>MaxyTrip</strong>'in rezervasyon sitesi ve NFC dijital menü platformu <strong>Taply</strong>, geliştirdiğimiz projelerden ikisi.</p>
           <div class="hero__actions reveal">
             <a class="btn btn--signal" href="#planla">Projenizi planlayın</a>
@@ -75,7 +59,7 @@
           </div>
         </div>
 
-        <figure class="board reveal" aria-label="Yayındaki işlerimiz ve sıradaki proje">
+        <figure class="board" aria-label="Yayındaki işlerimiz ve sıradaki proje">
           <div class="board__head">
             <span class="board__title">Yayındaki işler</span>
             <span class="board__clock"><span class="board__live" aria-hidden="true"></span>İST <time id="clock">--:--</time></span>
