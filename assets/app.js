@@ -50,7 +50,11 @@
     const statusWidth = Math.max(...rows.map(r => r.dataset.status.length));
     rows.forEach((row, r) => {
       const live = row.dataset.status === "YAYINDA";
-      row.setAttribute("aria-label", `${row.dataset.code}: ${row.dataset.name}, ${live ? "yayında" : "sırada"}`);
+      const link = document.createElement("a");
+      link.className = "board__link";
+      link.href = { MX: "#maxytrip", TP: "#taply", KN: "#portfolyo" }[row.dataset.code.slice(0, 2)] || "#planla";
+      link.setAttribute("aria-label", `${row.dataset.name}, ${live ? "yayında" : "sırada"}`);
+      row.append(link);
       row.append(
         makeFlaps(row.dataset.code, 4, "code"),
         makeFlaps(row.dataset.name, nameWidth, "name"),
@@ -317,7 +321,7 @@
       const e = effective(id);
       if (e.days) { dMin += e.days[0]; dMax += e.days[1]; }
       if (!e.days) noDays = true;
-      lines.push({ name: e.name, days: e.days ? `${range(e.days)} gün` : "görüşmede" });
+      lines.push({ name: e.name, days: e.days ? `${range(e.days)} gün` : "görüşmede", span: e.days });
     });
 
     GROUPS.forEach((g, gi) => {
@@ -328,6 +332,19 @@
     $("#sel-count").textContent = count;
     $("#sum-days").textContent = dMax ? `${range([dMin, dMax])} gün` : "—";
     $("#sel-note").hidden = !noDays;
+    // schedule: parts in sequence; solid = the minimum, dashed tail = up to the maximum
+    let at = 0;
+    const pct = n => `${(n / dMax * 100).toFixed(2)}%`;
+    const bars = lines.filter(l => l.span).map(l => {
+      const [a, b] = l.span, row = `<div class="chart__row" title="${l.name}"><span class="chart__bar" style="left:${pct(at)};width:${pct(a)}"></span><span class="chart__tail" style="left:${pct(at + a)};width:${pct(b - a)}"></span></div>`;
+      at += a;
+      return row;
+    });
+    // week ticks (5 working days) placed to scale; every other one when the plan runs long
+    const step = dMax > 40 ? 2 : 1;
+    const ticks = Array.from({ length: Math.floor(dMax / 5 / step) }, (_, i) => (i + 1) * step)
+      .map(w => `<span style="left:${pct(w * 5)}">${w} hf</span>`).join("");
+    $("#sel-chart").innerHTML = bars.length ? bars.join("") + `<div class="chart__ruler"><span style="left:0">0</span>${ticks}</div>` : "";
     $("#sel-list").innerHTML = lines.length
       ? lines.map(l => `<li><span>${l.name}</span><span>${l.days}</span></li>`).join("")
       : `<li class="ticket__empty">Soldan bir parça seçerek başlayın.</li>`;
@@ -472,6 +489,20 @@
       const next = tabs[(i + (e.key === "ArrowRight" ? 1 : tabs.length - 1)) % tabs.length];
       select(next);
       next.focus();
+    });
+  });
+
+  /* ---------- Screenshot pins ↔ legend ---------- */
+  $$(".showcase").forEach(sc => {
+    const pins = $$(".pin", sc), items = $$(".legend li", sc);
+    pins.forEach((pin, i) => {
+      const item = items[i];
+      if (!item) return;
+      const on = v => () => { pin.classList.toggle("is-hot", v); item.classList.toggle("is-hot", v); };
+      [pin, item].forEach(el => {
+        el.addEventListener("mouseenter", on(true));
+        el.addEventListener("mouseleave", on(false));
+      });
     });
   });
 

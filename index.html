@@ -17,7 +17,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&text=KNC&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lenis@1.3.27/dist/lenis.css">
-  <link rel="stylesheet" href="assets/styles.css?v=2026-10-31b">
+  <link rel="stylesheet" href="assets/styles.css?v=2026-10-31c">
   <script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
@@ -133,6 +133,45 @@
           <span><b>Sabit teklif</b>, kalem kalem</span>
           <span><b>1 ay</b> hata garantisi</span>
         </div>
+      </div>
+    </section>
+
+    <!-- SEÇİLMİŞ İŞLER: a 3D ring of delivered screens (after knc-studio's project wall).
+         Without motion it is a plain horizontal strip; motion.js turns it into the ring. -->
+    <section class="works" id="secilmis" aria-labelledby="works-title">
+      <div class="works__stage">
+        <header class="wrap works__head">
+          <p class="eyebrow">Seçilmiş işler</p>
+          <h2 class="section__title" id="works-title">Yayındaki ekranlardan bir tur</h2>
+        </header>
+        <ul class="works__ring" aria-label="Proje ekranları">
+          <li class="works__card works__card--desktop" data-client="MaxyTrip" data-label="Ana sayfa ve canlı kontenjan">
+            <a href="#maxytrip"><img src="assets/img/maxytrip-desktop.jpg" width="1800" height="1125" alt="MaxyTrip: Ana sayfa ve canlı kontenjan" loading="lazy" draggable="false"></a>
+          </li>
+          <li class="works__card works__card--phone" data-client="MaxyTrip" data-label="Telefonda ana sayfa">
+            <a href="#maxytrip"><img src="assets/img/maxytrip-mobile.jpg" width="600" height="1300" alt="MaxyTrip: Telefonda ana sayfa" loading="lazy" draggable="false"></a>
+          </li>
+          <li class="works__card works__card--desktop" data-client="Taply" data-label="Kafe paneli">
+            <a href="#taply"><img src="assets/img/taply-panel.jpg" width="1800" height="1125" alt="Taply: Kafe paneli" loading="lazy" draggable="false"></a>
+          </li>
+          <li class="works__card works__card--desktop" data-client="Taply" data-label="Yönetim paneli">
+            <a href="#taply"><img src="assets/img/taply-admin.jpg" width="1800" height="1125" alt="Taply: Yönetim paneli" loading="lazy" draggable="false"></a>
+          </li>
+          <li class="works__card works__card--phone" data-client="Taply" data-label="Telefonda dijital menü">
+            <a href="#taply"><img src="assets/img/taply-menu.jpg" width="780" height="1688" alt="Taply: Telefonda dijital menü" loading="lazy" draggable="false"></a>
+          </li>
+          <li class="works__card works__card--desktop" data-client="Taply" data-label="Tanıtım sitesi">
+            <a href="#taply"><img src="assets/img/taply-site.jpg" width="1800" height="1125" alt="Taply: Tanıtım sitesi" loading="lazy" draggable="false"></a>
+          </li>
+          <li class="works__card works__card--desktop" data-client="kncn23.github.io" data-label="Kişisel site">
+            <a href="#portfolyo"><img src="assets/img/kncn23-desktop.jpg" width="1800" height="1125" alt="kncn23.github.io: Kişisel site" loading="lazy" draggable="false"></a>
+          </li>
+          <li class="works__card works__card--phone" data-client="kncn23.github.io" data-label="Telefonda kişisel site">
+            <a href="#portfolyo"><img src="assets/img/kncn23-mobile.jpg" width="600" height="1300" alt="kncn23.github.io: Telefonda kişisel site" loading="lazy" draggable="false"></a>
+          </li>
+        </ul>
+        <p class="works__counter" aria-hidden="true"><span class="works__num">01 / 08</span><span class="works__sep">—</span><span class="works__title">MaxyTrip · Ana sayfa ve canlı kontenjan</span></p>
+        <p class="works__hint" aria-hidden="true">Kaydırın ya da sürükleyin · bir ekrana tıklayın</p>
       </div>
     </section>
 
@@ -479,6 +518,7 @@
               <div><dt>Tahmini süre</dt><dd id="sum-days">—</dd></div>
               <div><dt>Ücret</dt><dd class="ticket__quote">Görüşmede, kalem kalem sabit teklif</dd></div>
             </dl>
+            <div class="ticket__chart" id="sel-chart" aria-hidden="true"></div>
             <ul class="ticket__list" id="sel-list"><li class="ticket__empty">Soldan bir parça seçerek başlayın.</li></ul>
             <p class="ticket__note" id="sel-note" hidden>Süresi görüşmede netleşecek kalemler toplama dahil değildir.</p>
             <div class="ticket__who">
@@ -633,10 +673,10 @@
     <a class="btn btn--signal btn--sm" href="#ozet" tabindex="-1">Özeti gör</a>
   </div>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <script src="assets/app.js?v=2026-10-31b" defer></script>
+  <script src="assets/app.js?v=2026-10-31c" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.27/dist/lenis.min.js" defer></script>
-  <script src="assets/motion.js?v=2026-10-31b" defer></script>
+  <script src="assets/motion.js?v=2026-10-31c" defer></script>
 </body>
 </html>

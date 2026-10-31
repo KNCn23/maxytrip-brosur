@@ -6,7 +6,9 @@
 
 ## İçerik
 
-- **Yayındaki işler panosu**: yayındaki projeleri havalimanı panosu gibi gösteren açılış bölümü; son satır “Sizin projeniz”
+- **Açılış sahnesi**: yüklemede kendini çizen tel kafes (çerçeve, çaprazlar, kemer); kaydırdıkça bronza dönüşüyor, kemer KNC mührüyle yükseliyor ([Moktaine/knc-studio](https://github.com/Moktaine/knc-studio) uyarlaması)
+- **Seçilmiş işler halkası**: yayındaki ekranlardan 3B halka; kaydırınca döner, sürüklenir, bir ekrana tıklayınca o projeye gider (hareket azaltıldığında yatay şerit)
+- **Yayındaki işler panosu**: satırlar ilgili projeye götürür; yayındaki projeleri havalimanı panosu gibi gösteren açılış bölümü; son satır “Sizin projeniz”
 - **İşlerimiz**: iki müşteri projesi ve bir kişisel proje
   - **MaxyTrip**: tur ve araç kiralama rezervasyon sitesi (ekran görüntüsü üzerinde işaretli, teslim edilen 21 özellik açılır listede)
   - **Taply**: NFC/QR dijital menü platformu; tanıtım sitesi, kafe paneli ve yönetim paneli (sekmeli ekran görüntüleri, telefonda menü)

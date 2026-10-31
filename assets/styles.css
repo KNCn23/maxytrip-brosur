@@ -634,3 +634,75 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 ::selection { background: var(--signal); color: var(--signal-ink); }
 textarea, input { caret-color: var(--signal); }
 .ticket .btn { letter-spacing: .2em; padding-inline: 16px; }
+
+/* ---------- Selected works: a 3D ring of delivered screens (after knc-studio's project wall) ----------
+   Base: a horizontal strip that scrolls sideways. .is-ring (motion.js): cards stand on a ring that
+   turns with the page scroll and with drag; the card facing you is the one the counter names. */
+.works { background: var(--sea-900); padding-top: clamp(72px, 10vw, 128px); overflow: hidden; }
+.works__head { margin-bottom: clamp(24px, 4vw, 48px); }
+.works__ring {
+  display: flex; gap: 24px; overflow-x: auto; scroll-snap-type: x mandatory;
+  padding: 8px var(--gutter) 24px; margin: 0;
+}
+.works__card { flex: none; scroll-snap-align: center; }
+.works__card a { display: block; border: 1px solid var(--gold-45); background: var(--paper); }
+.works__card img { display: block; width: 100%; height: auto; pointer-events: none; user-select: none; }
+.works__card--desktop { width: min(78vw, 420px); }
+.works__card--phone { width: min(36vw, 170px); }
+.works__counter {
+  display: flex; justify-content: center; align-items: baseline; gap: 14px; flex-wrap: wrap;
+  padding: 0 var(--gutter); text-align: center;
+  font: 400 11px/1.4 var(--f-body); letter-spacing: .26em; text-transform: uppercase; color: var(--text-dark-muted);
+}
+.works__num { color: var(--signal); }
+.works__title { font: 400 italic 22px/1.2 var(--f-display); letter-spacing: 0; text-transform: none; color: var(--ink); }
+.works__hint { margin-top: 10px; padding-bottom: 32px; text-align: center; font: 400 10px/1.4 var(--f-body); letter-spacing: .26em; text-transform: uppercase; color: var(--text-dark-muted); }
+
+.works.is-ring .works__stage { height: calc(100svh - 64px); min-height: 560px; display: flex; flex-direction: column; }
+.works.is-ring { padding-top: 0; }
+.works.is-ring .works__head { padding-top: clamp(28px, 5vh, 56px); margin-bottom: 0; }
+.works.is-ring .works__ring {
+  position: relative; flex: 1 1 auto; overflow: visible; padding: 0; scroll-snap-type: none;
+  perspective: 1800px; cursor: grab; touch-action: pan-y;
+}
+.works.is-ring .works__ring.is-dragging { cursor: grabbing; }
+.works.is-ring .works__card {
+  position: absolute; left: 50%; top: 50%; translate: -50% -50%;
+  backface-visibility: hidden; -webkit-backface-visibility: hidden;
+  transition: filter .4s var(--ease);
+}
+.works.is-ring .works__card a { transition: border-color .4s var(--ease); }
+.works.is-ring .works__card.is-front a { border-color: var(--signal); }
+.works.is-ring .works__card:not(.is-front) { filter: grayscale(.55) brightness(.97); }
+
+/* ---------- Board rows lead to their project ---------- */
+.board__rows li { position: relative; transition: background-color .3s var(--ease); }
+.board__link { position: absolute; inset: 0; z-index: 1; }
+.board__rows li:hover, .board__rows li:focus-within { background: rgb(140 106 53 / .08); }
+.board__rows li:hover .name .flap, .board__rows li:focus-within .name .flap { color: var(--signal); }
+
+/* ---------- Screenshot pins and their legend light each other up ---------- */
+.pin { transition: transform .3s var(--ease); }
+.pin.is-hot { transform: translate(-50%, -50%) scale(1.3); z-index: 2; }
+.legend li { transition: color .3s var(--ease); cursor: default; }
+.legend li.is-hot strong { color: var(--signal); }
+.legend li.is-hot b { background: var(--signal); color: var(--signal-ink); }
+
+/* ---------- Planner: the chosen parts drawn as a schedule (solid = minimum, dashed = up to maximum) ---------- */
+.ticket__chart { display: grid; gap: 6px; margin-top: 16px; }
+.ticket__chart:empty { display: none; }
+.chart__row { position: relative; height: 6px; }
+.chart__bar, .chart__tail { position: absolute; top: 0; height: 100%; }
+.chart__bar { background: var(--signal); transform-origin: left; animation: grow .6s var(--ease) both; }
+.chart__tail { border-top: 1px dashed var(--gold-45); border-bottom: 1px dashed var(--gold-45); }
+.chart__ruler { position: relative; height: 22px; margin-top: 4px; border-top: 1px solid var(--line); font: 400 10px/1 var(--f-body); letter-spacing: .08em; color: var(--text-dark-muted); }
+.chart__ruler span { position: absolute; top: 7px; translate: -50% 0; white-space: nowrap; }
+.chart__ruler span:first-child { translate: 0 0; }
+.chart__ruler span::before { content: ""; position: absolute; left: 50%; top: -8px; height: 4px; border-left: 1px solid var(--dash); }
+@keyframes grow { from { transform: scaleX(0); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .pin.is-hot { transform: translate(-50%, -50%); }
+}
+.works:not(.is-ring) .works__counter, .works:not(.is-ring) .works__hint { display: none; }
+.works:not(.is-ring) .works__ring { padding-bottom: clamp(48px, 7vw, 88px); }
