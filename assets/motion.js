@@ -10,7 +10,7 @@
   const { gsap, ScrollTrigger, Lenis } = window;
   if (!gsap || !ScrollTrigger) return;
   gsap.registerPlugin(ScrollTrigger);
-  // phones resize the viewport as the address bar shows/hides; re-measuring then makes the pinned intro jump
+  // phones resize the viewport as the address bar shows/hides; re-measuring then makes the pinned ring jump
   ScrollTrigger.config({ ignoreMobileResize: true });
 
   const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
@@ -41,54 +41,7 @@
   // <details> (case ledgers, planner groups, FAQ) change the page height without a resize event.
   document.addEventListener("toggle", () => ScrollTrigger.refresh(), true);
 
-  /* ---------- Intro scene (after Moktaine/knc-studio, scene 1): the drawing finishes itself ----------
-     Pinned for about one screen of scrolling and scrubbed to it. The CSS holds the finished state;
-     these .set() calls draw the wireframe on top, and matchMedia reverts them if motion is reduced. */
   const mm = gsap.matchMedia();
-  mm.add("(prefers-reduced-motion: no-preference)", () => {
-    const intro = document.querySelector(".intro");
-    if (!intro) return;
-    const q = gsap.utils.selector(document);
-    const open = "inset(0% 0% 0% 0%)";
-    // negative insets keep the italic overhang and descenders of the serif inside the wipe
-    gsap.set(q(".intro__fill"), { clipPath: "inset(-20% 100% -30% -5%)" });
-    gsap.set(q(".intro__line--solid, .topbar__rule--solid"), { clipPath: "inset(0% 100% 0% 0%)" });
-    gsap.set(q(".intro__line--dash, .topbar__rule--dash"), { clipPath: open });
-    gsap.set(q(".intro__cross, .intro__wire"), { opacity: 1 });
-    gsap.set(q(".intro__bg, .intro__decor"), { opacity: 0 });
-    gsap.set(q(".intro__gold"), { clipPath: "inset(100% 0% 0% 0%)" });
-
-    const slow = { ease: "power1.inOut" };
-    gsap.timeline({
-      defaults: { ease: "none" },
-      // pin under the sticky topbar, not under the viewport edge
-      scrollTrigger: { trigger: intro, start: () => `top ${topbarH()}px`, end: "+=110%", pin: true, scrub: 0.6, invalidateOnRefresh: true },
-    })
-      .to(q(".intro__hint"), { opacity: 0, duration: 5 }, 1)
-      .to(q(".intro__fill"), { clipPath: "inset(-20% -5% -30% -5%)", duration: 26 }, 4)
-      .to(q(".intro__line--dash, .topbar__rule--dash"), { clipPath: "inset(0% 0% 0% 100%)", duration: 16, ...slow }, 12)
-      .to(q(".intro__line--solid, .topbar__rule--solid"), { clipPath: open, duration: 16, ...slow }, 12)
-      .to(q(".intro__cross"), { opacity: 0, duration: 10, ...slow }, 12)
-      .to(q(".intro__bg"), { opacity: 1, duration: 14, ...slow }, 16)
-      .to(q(".intro__gold"), { clipPath: open, duration: 16, ease: "power2.inOut" }, 18)
-      .to(q(".intro__wire"), { opacity: 0, duration: 10, ...slow }, 20)
-      .to(q(".intro__decor"), { opacity: 1, duration: 12, ...slow }, 23)
-      .to({}, { duration: 14 }); // rest on the finished drawing before the page moves on
-
-    // On load the wireframe draws itself before the visitor takes over: the frame opens from the
-    // top-left corner, the diagonals grow out of the centre, the arch rises, the headline slides in.
-    // These tween other properties than the scroll scene, so the two never fight.
-    if (window.scrollY < 5) {
-      lenis?.stop();
-      gsap.timeline({ defaults: { ease: "power3.inOut" }, onComplete: () => lenis?.start() })
-        .from(q(".intro__frame"), { clipPath: "inset(0% 100% 100% 0%)", duration: 1.2 }, 0)
-        .from(q(".intro__a"), { yPercent: 60, opacity: 0, duration: 1, ease: "power3.out" }, 0.1)
-        .from(q(".intro__cross"), { clipPath: "inset(50% 50% 50% 50%)", duration: 1 }, 0.45)
-        .from(q(".intro__wire"), { clipPath: "inset(100% 0% 0% 0%)", duration: 1 }, 0.6)
-        .from(q(".intro__ghost"), { opacity: 0, duration: 0.8, ease: "power1.out" }, 0.7)
-        .from(q(".intro__hint"), { y: 16, opacity: 0, duration: 0.6, ease: "power2.out" }, 1.25);
-    }
-  });
 
   /* ---------- Selected works: a 3D ring of delivered screens (after knc-studio's project wall) ----------
      Pinned for a screen and a half; scrolling turns the ring one card at a time, dragging turns it
